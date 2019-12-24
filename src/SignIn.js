@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
     const classes = useStyles();
 
     return (
@@ -65,6 +65,7 @@ export default function SignIn() {
                         margin="normal"
                         required
                         fullWidth
+                        onChange={props.email}
                         id="email"
                         label="Email Address"
                         name="email"
@@ -76,6 +77,7 @@ export default function SignIn() {
                         margin="normal"
                         required
                         fullWidth
+                        onChange={props.password}
                         name="password"
                         label="Password"
                         type="password"
@@ -87,10 +89,10 @@ export default function SignIn() {
                         label="Remember me"
                     />
                     <Button
-                        type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
+                        onClick={props.signin}
                         className={classes.submit}
                     >
                         Sign In
