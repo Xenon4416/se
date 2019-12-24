@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import SignIn from './Login';
 import './App.css';
 
-function App() {
-  return (
-      <SignIn/>
-  );
+class App extends Component {
+    state = {
+        displayMode: 'SignUp'
+    };
+
+    render(){
+        return (
+            <Fragment>
+                { this.state.displayMode === 'SignUp' ? <SignIn/> : null }
+            </Fragment>
+        )
+    }
 }
 
 export default App;
