@@ -1,0 +1,412 @@
+{
+  "Aerospace": {
+    "First": [
+      "Applied Mechanics",
+      "Basic Electrical",
+      "Workshop Technology",
+      "Engineering Drawing I",
+      "Engineering Physics",
+      "Maths I"
+    ],
+    "Second": [
+      "Basic Electronic",
+      "Engineering Chemistry",
+      "Drawing II",
+      "Maths II",
+      "Fundamental of Thermodynamics & Heat Transfer",
+      "C Programming"
+    ],
+    "Third": [
+      "Applied Thermodynamics & Heat Transfer",
+      "Computer Aided Design & Manufacturing",
+      "Engineering Mechanics",
+      "Fluid Mechanics",
+      "Fundamental of Aerospace",
+      "Math III"
+    ],
+    "Fourth": [
+      "Aerodynamics",
+      "Aerospace Materials",
+      "Control System",
+      "Probability & Statistics",
+      "Strength of Materials",
+      "Theory of Mechanism & Machine I"
+    ],
+    "Fifth": [
+      "Aircraft Manufacturing Process",
+      "Aircraft Propulsion",
+      "Continuum Mechanics",
+      "Fault Monitoring & Diagnosis",
+      "Numerical Methods",
+      "Theory of Vibration"
+    ],
+    "Sixth": [
+      "Aircraft Environment Control System",
+      "Avionics",
+      "Flight Dynamics",
+      "Finite Element Method",
+      "Unmanned Air Vehicle Synthesis",
+      "Aircraft Maintenance Engineering"
+    ],
+    "Seventh": [
+      "Aircraft Preliminary Design",
+      "Computational Fluid Dynamics",
+      "Aircraft Structure",
+      "Embedded Systems in Avionics",
+      "Air Traffic Management"
+    ],
+    "Eighth": [
+      "Aviation Professional Practices",
+      "Internship",
+      "Elective"
+    ]
+  },
+
+  "Architecture": {
+  	"First": [
+  	  "Applied Mechanics",
+  	  "Basic Design I",
+  	  "Building Materials I",
+  	  "Drafting I",
+  	  "Free Hand Sketching I",
+  	  "Introduction to Architecture",
+  	  "Math I"
+    ],
+    "Second": [
+      "Arts and Graphic",
+      "Basic Design II",
+      "Basic Skills Workshop",
+      "Math II",
+      "Building Construction I",
+      "Drafting II",
+      "Free Hand Sketching II"
+    ],
+    "Third": [
+      "Building Construction II",
+      "Building Materials II",
+      "Building Science I",
+      "Design Studio III",
+      "Design Theory I",
+      "History Of Architecture I",
+      "Structure I"
+    ],
+    "Fourth": [
+      "Building Construction III",
+      "Design Studio VIII",
+      "Design Theory II",
+      "Histry of Architecture II",
+      "Structure II",
+      "Surveying"
+    ],
+    "Fifth": [
+      "Building Construction IV",
+      "Building Services I",
+      "Building Services II",
+      "Computer Aided Design and drafting",
+      "Contemporary Architecture",
+      "Design Studio V",
+      "Working Drawing"
+    ],
+    "Sixth": [
+      "Building economics",
+      "Building Science II",
+      "Design Studio VI",
+      "Estimating and Costing",
+      "Sociology",
+      "Specification",
+      "Structure III",
+      "Urban and settlement planning"
+    ],
+    "Seventh": [
+      "Practicum"
+    ],
+    "Eighth": [
+      "Architectural Conservation",
+      "Building Services III",
+      "Construction Management",
+      "Design Studio VII",
+      "Structure IV",
+      "Communication",
+      "Elective-I"
+    ],
+    "Ninth": [
+      "Design Studio VIII",
+      "Landscape Design and Site Planning",
+      "Professional Practice",
+      "Seminar Directed Studies",
+      "Thesis Proposal and Research",
+      "Elective-II"
+    ],
+    "Tenth": [
+      "Thesis Design"
+    ]  
+  },
+  "Civil": {
+    "First": [
+      "C programming",
+      "Drawing I",
+      "Engineering Chemistry",
+      "Fundamental Of Thermodynamics and Heat Transfer",
+      "Math I",
+      "Workshop Technology"
+    ],
+    "Second": [
+      "Applied mechanics",
+      "Basic Electrical Engineering",
+      "Basic Electronics Engineering",
+      "Drawing II",
+      "Math II",
+      "Engineering Physics"
+    ],
+    "Third": [
+      "Applied Mechanics-Dynamics",
+      "Civil Engineering Materials",
+      "Engineering Geology I",
+      "Engineering Math II",
+      "Fluid Mechanics",
+      "Strength of Materials",
+      "Surveying I"
+    ],
+    "Fourth": [
+      "Building Drawing",
+      "Engineering Geology II",
+      " Hydraulics",
+      "Probability and Statistics",
+      "Soil Mechanics",
+      "Surveying II",
+      "Theory of Structures I"
+    ],
+    "Fifth": [
+      "Concrete technology and Masonry Structures",
+      "Engineering Hydrology",
+      "Foundation Engineering",
+      "Numerical Methods",
+      "Survey Camp/Field Work",
+      "Theory of Structures II",
+      "Water Supply Engineering"
+    ],
+    "Sixth": [
+      "Building Technology",
+      "Communication English",
+      "Design of Steel and Timber Structures",
+      "Engineering Economics",
+      "Irrigation and Drainage Engineering",
+      "Sanitary Engineering",
+      "Transportaion Engineering"
+    ],
+    "Seventh": [
+      "Design of RCC Structures",
+      "Elective I",
+      "Estimating and Costing",
+      "Hydropower Engineering",
+      "Project Engineering",
+      "Project I",
+      "Transportaion Engineering II"
+    ],
+    "Eighth": [
+      "Computational Techniques in Civil Engineering",
+      "Construction Management",
+      "Elective-II",
+      "Elective-III",
+      "Engineering Professional Practice",
+      "Project II",
+      "Technology, Environment and Society"
+    ]
+  },
+  "Computer": {
+    "First": [
+      "Applied Mechanics",
+      "Basic Electrical Engineering",
+      "C Programming",
+      "Drawing I",
+      "Engineering Physics",
+      "Math I"
+    ],
+    "Second": [
+      "Basic Electronics",
+      "Engineering Chemistry",
+      "Drafting II",
+      "Math II",
+      "Fundamental of Thermodynamics & Heat Transfer",
+      "Workshop Technology"
+    ],
+    "Third": [
+      "Digital Logic",
+      "Electric Circuit Theory",
+      "Electromagnetics",
+      "Electronic Devices and Circuits",
+      "Engineering Math III",
+      "Object Oriented Programming",
+      "Theory of Computation"
+    ],
+    "Fourth": [
+      "Applied Mathematics",
+      "Data Structure and Algorithm",
+      "Discrete Structure",
+      "Electric Machine",
+      "Instrumentaion I",
+      "Microprocessor",
+      "Numerical Methods"
+    ],
+    "Fifth": [
+      "Communication English",
+      "Computer Graphics",
+      "Computer Organization and Architecture",
+      "Data Communication",
+      "Instrumentation II",
+      "Probability and Statistics",
+      "Software Engineering"
+    ],
+    "Sixth": [
+      "Artificial Intelligence",
+      "Database Management System",
+      "Embedded System",
+      "Engineering Economics",
+      "Minor Project",
+      "object Oriented Analysis and Design",
+      "Operating System"
+    ],
+    "Seventh": [
+      "Computer Network",
+      "Digital Signal Analysis & Processing",
+      "Distributed System",
+      "Energy, Environment and Society",
+      "ICT Project Management",
+      "Organization & Management",
+      "Project- PartA",
+      "Elective I"
+    ],
+    "Eighth": [
+      "Engineering Professional Practice",
+      "Information System",
+      "Internet and Intranet",
+      "Project- PartB",
+      "Simulation and Modeling",
+      "Elective II",
+      "Elective III"
+    ]
+  },
+  "Electrical": {
+    "First": [
+      "Applied Mechanics",
+      "Basic Electrical Engineering",
+      "C Programming",
+      "Drafting I",
+      "Engineering Physics",
+      "Math I"
+    ],
+    "Second": [
+      "Basic Electronics",
+      "Engineering Chemistry",
+      "Drafting II",
+      "Math II",
+      "Fundamental of Thermodynamics & Heat Transfer",
+      "Workshop Technology",
+    ],
+    "Third": [
+      "Digital Logic",
+      "Electric Circuit Theory",
+      "Electrical Engineering Material",
+      "Electromagnetics",
+      "Electronic Devices and Circuits",
+      "Engineering Math III",
+      "Object Oriented Programming"
+    ],
+    "Fourth": [
+      "Applied Mathematics",
+      "Electric Machine I",
+      "Instrumentaion I",
+      "Microprocessor",
+      "Numerical Methods",
+      "Power System Analysis I"
+    ],
+    "Fifth": [
+      "Communication English",
+      "Control System",
+      "Electric Machine Design",
+      "Electrical Machine II",
+      "Instrumentation II",
+      "Power System Analysis II",
+      "Probability and Statistics"
+    ],
+    "Sixth": [
+      "Digital Control System",
+      "Engineering Economics",
+      "HydroPower",
+      "Industrial Power Distribution & Illumination",
+      "Signal Analysis",
+      "Switchgear and Protection"
+    ],
+    "Seventh": [
+      "Organization and Management",
+      "Power Electronics",
+      "Power Plant Equipment",
+      "Project Engineering",
+      "Project I",
+      "Technology, Environment & Society",
+      "Utilization of Electrical Energy",
+      "Elective I"
+    ],
+    "Eighth":[
+      "Engineering Professional Practice",
+      "High Voltage Engineering",
+      "Power Plant Design",
+      "Project II",
+      "Transmission and Distributed System Design",
+      "Elective II",
+      "Elective III"
+    ]
+  },
+  "ElectronicsN":{
+    "First":[
+      "Basic Electrical Engineering",
+      "Digital Logic",
+      "C Programming",
+      "Drafting I",
+      "Engineering Physics",
+      "Math I"
+    ],
+    "Second": [
+      "Electric Circuits and Machine",
+      "Engineering Chemistry",
+      "Engineering Math II",
+      "Microprocessor",
+      "Object Oriented Programming",
+      "Workshop Technology"
+    ],
+    "Third": [
+      "Control System",
+      "Electromagnetics",
+      "Electronic Devices and Circuits",
+      "Math III",
+      "Electric Circuit Theory",
+      "Instrumentation",
+      "Probability and Statistics",
+    ],
+    "Fourth": [
+      "Advanced Electronics",
+      "Applied Mathematics",
+      "Computer Graphics",
+      "Data Structure and Algorithm",
+      "Discrete Structure",
+      "Numerical Methods"
+    ],
+    "Fifth": [
+      "Computer Network",
+      "Computer Organization and Architecture",
+      "Database Management System",
+      "Engineering Economics",
+      "Filter Design",
+      "Operating System"
+    ],
+    "Sixth": [
+      "Communication English",
+      "Communication System",
+      "Embedded System",
+      "Minor Project",
+      
+    ]
+  }
+
+  }
+
