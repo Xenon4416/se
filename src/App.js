@@ -7,13 +7,13 @@ import './App.css';
 class App extends Component {
     state = {
         displayMode: 'SignIn',
-        signin: { email: null, password: null },
+        signin: { username: null, password: null },
         isAuth: false
     };
 
-    emailChangeHandler = (event) => {
+    usernameChangeHandler = (event) => {
         let temp = {...this.state.signin};
-        temp.email = event.target.value;
+        temp.username = event.target.value;
         console.log('asd');
         this.setState({signin: temp})
     };
@@ -31,23 +31,25 @@ class App extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email: this.state.signin.email,
+                username: this.state.signin.username,
                 password: this.state.signin.password
             })
-        }).then()
+        })
+            .then(res => res.json())
+            .then(res => console.log(res))
     };
 
     render(){
         let mode = <Switch>
             <Route path='/' exact render={() => <SignIn
-                email={this.emailChangeHandler}
+                username={this.usernameChangeHandler}
                 password={this.passwordChangeHandler}
                 signin={this.onSignInHandler}/>}/>
             <Redirect to='/'/>
         </Switch>;
         /*if (this.state.displayMode === 'SignIn'){
             mode = <SignIn
-                email={this.emailChangeHandler}
+                username={this.usernameChangeHandler}
                 password={this.passwordChangeHandler}
                 signin={this.onSignInHandler}/>
         }
