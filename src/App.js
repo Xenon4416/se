@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import SignIn from './SignIn';
+import SignIn from './pages/SignIn';
+import StudentView from './components/TeacherStudentView/StudentView';
 import './App.css';
 
 
@@ -25,7 +26,7 @@ class App extends Component {
     };
 
     onSignInHandler = () => {
-        fetch('http://localhost:3000/signin',{
+        /*fetch('http://localhost:3000/signin',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,6 +38,8 @@ class App extends Component {
         })
             .then(res => res.json())
             .then(res => console.log(res))
+            .catch(err => console.log(err))*/
+        this.setState({displayMode:'Teacher', isAuth: true})
     };
 
     render(){
@@ -58,7 +61,8 @@ class App extends Component {
         else if (this.state.displayMode === 'Student'){ mode = null }*/
         return (
             <Fragment>
-                { mode }
+                {/*{ mode }*/}
+                <StudentView roll={'asd'} name={'asdas'} pract_fm={'asd'}/>
             </Fragment>
         )
     }
