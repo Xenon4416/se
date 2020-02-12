@@ -61,8 +61,8 @@ class App extends Component {
         else if (this.state.displayMode === 'Student'){ mode = null }*/
         return (
             <Fragment>
-                {/*{ mode }*/}
-                <StudentView roll={'asd'} name={'asdas'} pract_fm={'asd'}/>
+                { mode }
+                {/*<StudentView roll={'asd'} name={'asdas'} pract_fm={'asd'}/>*/}
             </Fragment>
         )
     }
