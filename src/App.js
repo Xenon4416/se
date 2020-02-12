@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import SignIn from './pages/SignIn';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import StudentView from './components/TeacherStudentView/StudentView';
 import './App.css';
 
@@ -44,10 +46,7 @@ class App extends Component {
 
     render(){
         let mode = <Switch>
-            <Route path='/' exact render={() => <SignIn
-                username={this.usernameChangeHandler}
-                password={this.passwordChangeHandler}
-                signin={this.onSignInHandler}/>}/>
+            <Route path='/' exact render={() => <SignIn/>}/>
             <Redirect to='/'/>
         </Switch>;
         /*if (this.state.displayMode === 'SignIn'){
