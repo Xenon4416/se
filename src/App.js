@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import SignIn from './pages/SignIn';
+import Admin from './pages/Admin';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import StudentView from './components/TeacherStudentView/StudentView';
@@ -8,13 +9,13 @@ import './App.css';
 
 
 class App extends Component {
-    state = {
+    /*state = {
         displayMode: 'SignIn',
         signin: { username: null, password: null },
         isAuth: false
-    };
+    };*/
 
-    usernameChangeHandler = (event) => {
+/*    usernameChangeHandler = (event) => {
         let temp = {...this.state.signin};
         temp.username = event.target.value;
         console.log('asd');
@@ -28,7 +29,7 @@ class App extends Component {
     };
 
     onSignInHandler = () => {
-        /*fetch('http://localhost:3000/signin',{
+        /!*fetch('http://localhost:3000/signin',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,13 +41,14 @@ class App extends Component {
         })
             .then(res => res.json())
             .then(res => console.log(res))
-            .catch(err => console.log(err))*/
+            .catch(err => console.log(err))*!/
         this.setState({displayMode:'Teacher', isAuth: true})
-    };
+    };*/
 
     render(){
         let mode = <Switch>
             <Route path='/' exact render={() => <SignIn/>}/>
+            <Route path='/admin' exact render={() => <Admin/>}/>
             <Redirect to='/'/>
         </Switch>;
         /*if (this.state.displayMode === 'SignIn'){
