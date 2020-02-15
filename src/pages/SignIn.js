@@ -234,7 +234,7 @@ class SignIn extends Component {
                     </div>
                 </div>
 
-                <button type="submit" onClick={this.onSignInHandler} className="btn btn-primary btn-block">Submit</button>
+                <button type="submit" onClick={this.onSignInHandler} className="btn btn-primary btn-block">Login</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
