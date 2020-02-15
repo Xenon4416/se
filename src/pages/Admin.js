@@ -24,7 +24,7 @@ class Admin extends Component {
         let username = document.getElementById('username').value;
         let password = document.getElementById('password').value;
         let reqBody = {name: name, username: username, password: password, classes: this.state.classes};
-        /*fetch('http://localhost:3000/signin',{
+        fetch('http://localhost:3000/api/users/assignTeacher',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,8 +32,10 @@ class Admin extends Component {
             body: JSON.stringify(reqBody)
         })
             .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => console.log(err));*/
+            .then(res => {
+                alert('New Teacher Assigned');
+                console.log(res)})
+            .catch(err => console.log(err));
     }
 
     onAddClickHandler(event){

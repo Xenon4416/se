@@ -189,13 +189,14 @@ class SignIn extends Component {
         // this.props.passwrd(event.target.value);
     };
 
-    onSignInHandler = () => {
+    onSignInHandler = (event) => {
+        event.preventDefault();
         // this.setState({displayMode:'Teacher', isAuth: true})
         if (this.state.username === '' || this.state.password === ''){
             alert('Username and Password field must not be empty!!')
         }
         else {
-            /*fetch('http://localhost:3000/signin',{
+            fetch('http://localhost:3000/api/users/login',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -206,9 +207,15 @@ class SignIn extends Component {
                 })
             })
                 .then(res => res.json())
-                .then(res => console.log(res))
-                .catch(err => console.log(err));*/
-            this.setState({redir: <Redirect to='/admin'/>})
+                .then(res => {
+                    console.log(res);
+                    if (res.status === 'success'){
+                        console.log(res);
+                        localStorage.setItem('token', res.token);
+                        this.setState({redir: <Redirect to='/admin'/>})
+                    }
+                })
+                .catch(err => console.log(err));
         }
     };
 
@@ -233,8 +240,7 @@ class SignIn extends Component {
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                     </div>
                 </div>
-
-                <button type="submit" onClick={this.onSignInHandler} className="btn btn-primary btn-block">Login</button>
+                <button type='button' onClick={this.onSignInHandler} className="btn btn-primary btn-block">Login</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
