@@ -24,7 +24,7 @@ class Admin extends Component {
         let username = document.getElementById('username').value;
         let password = document.getElementById('password').value;
         let reqBody = {name: name, username: username, password: password, classes: this.state.classes};
-        fetch('http://localhost:3000/signin',{
+        /*fetch('http://localhost:3000/signin',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ class Admin extends Component {
         })
             .then(res => res.json())
             .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .catch(err => console.log(err));*/
     }
 
     onAddClickHandler(event){

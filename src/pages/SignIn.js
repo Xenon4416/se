@@ -162,29 +162,54 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(SignIn);*/
 
 import React,{ Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './SignIn.css';
 
 class SignIn extends Component {
+    state = {
+        username: '',
+        password: '',
+        redir: null
+    };
+
     usernameChangeHandler = (event) => {
         // let temp = {...this.state.signin};
         // temp.username = event.target.value;
         // console.log('asd');
-        // this.setState({signin: temp})
-        this.props.usrnme(event.target.value);
+        this.setState({username: event.target.value});
+        // this.props.usrnme(event.target.value);
     };
 
     passwordChangeHandler = (event) => {
         // let temp = {...this.state.signin};
         // temp.password = event.target.value;
-        // this.setState({signin: temp})
-        this.props.passwrd(event.target.value);
+        this.setState({password: event.target.value})
+        // this.props.passwrd(event.target.value);
     };
 
     onSignInHandler = () => {
         // this.setState({displayMode:'Teacher', isAuth: true})
-        this.props.submit();
+        if (this.state.username === '' || this.state.password === ''){
+            alert('Username and Password field must not be empty!!')
+        }
+        else {
+            /*fetch('http://localhost:3000/signin',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: this.state.username,
+                    password: this.state.password
+                })
+            })
+                .then(res => res.json())
+                .then(res => console.log(res))
+                .catch(err => console.log(err));*/
+            this.setState({redir: <Redirect to='/admin'/>})
+        }
     };
 
     render() {
@@ -193,8 +218,8 @@ class SignIn extends Component {
                 <h3>Sign In</h3>
 
                 <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" onChange={this.usernameChangeHandler} placeholder="Enter email" />
+                    <label>Username</label>
+                    <input type="text" className="form-control" onChange={this.usernameChangeHandler} placeholder="Enter email" />
                 </div>
 
                 <div className="form-group">
@@ -213,6 +238,7 @@ class SignIn extends Component {
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
+                {this.state.redir}
             </form>
         );
     }
@@ -228,9 +254,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        usrnme: (val) => dispatch({type: 'USRNM_CHNG', value: val}),
-        passwrd: (val) => dispatch({type: 'PASSWRD_CHNG', value: val}),
-        submit: () => dispatch({type: 'SUBMIT'})
+        // usrnme: (val) => dispatch({type: 'USRNM_CHNG', value: val}),
+        // passwrd: (val) => dispatch({type: 'PASSWRD_CHNG', value: val}),
+        // submit: () => dispatch({type: 'SUBMIT'})
     };
 };
 

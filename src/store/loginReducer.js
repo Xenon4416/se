@@ -1,8 +1,6 @@
 const initialState = {
     displayMode: 'SignIn',
     isLoggedIn: false,
-    username: null,
-    password: null,
     isAuth: false
 };
 
