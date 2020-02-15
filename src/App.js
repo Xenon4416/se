@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import SignIn from './pages/SignIn';
 import Admin from './pages/Admin';
+import Teacher from './pages/Teacher';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import StudentView from './components/TeacherStudentView/StudentView';
@@ -44,11 +45,14 @@ class App extends Component {
             .catch(err => console.log(err))*!/
         this.setState({displayMode:'Teacher', isAuth: true})
     };*/
-
+    componentDidMount(){
+        console.log(this.props);
+    }
     render(){
         let mode = <Switch>
             <Route path='/' exact render={() => <SignIn/>}/>
             <Route path='/admin' exact render={() => <Admin/>}/>
+            <Route path='/teacher' exact render={()=><Teacher tutorClass="073BEX" subjectCode="SH401"/>}/>
             <Redirect to='/'/>
         </Switch>;
         /*if (this.state.displayMode === 'SignIn'){

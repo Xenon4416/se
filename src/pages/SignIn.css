@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background: #1C8EF9 !important;
+    background: #00a8cc !important;
     min-height: 100vh;
     display: flex;
     font-weight: 400;
@@ -32,6 +32,8 @@ body, html, .App, #root, .auth-wrapper {
     flex-direction: column;
     text-align: left;
 }
+
+
 
 .auth-inner {
     width: 450px;
