@@ -13,9 +13,6 @@ class Admin extends Component {
         this.onSubmithandler = this.onSubmithandler.bind(this);
     }
     state = {
-        name:'',
-        username:'',
-        password:'',
         classes:[],
         batch:['074BCT','074BEX'],
         subcodes:['SH401'],
