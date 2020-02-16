@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, Popover, PopoverHeader, PopoverBody  } from 'reactstrap';
+import './admin.css';
+import { Col, Button, Form, Container, Row, FormGroup, Label, Input, Popover, PopoverHeader, PopoverBody  } from 'reactstrap';
 import { connect } from 'react-redux';
 
 const Option = props => {
@@ -9,7 +10,7 @@ const Option = props => {
 class Admin extends Component {
     constructor (props){
         super (props);
-        this.onAddClickHandler = this.onAddClickHandler.bind(this)
+        this.onAddClickHandler = this.onAddClickHandler.bind(this);
         this.onSubmithandler = this.onSubmithandler.bind(this);
     }
     state = {
@@ -68,7 +69,10 @@ class Admin extends Component {
     render(){
         return (
             <div>
-                <Form>
+                <Form className="myContainer">
+                    <FormGroup>
+                        <h2>Add Teacher</h2>
+                    </FormGroup>
                     <FormGroup row>
                         <Label sm={2}>Name</Label>
                         <Col sm={9}>
@@ -94,7 +98,7 @@ class Admin extends Component {
                                 {this.state.batch.map((value) => <option>{value}</option>)}
                             </Input>
                         </Col>
-                        <Col sm={2}>
+                        <Col sm={3}>
                             <Input type="select" name="subcode" id='subcode'>
                                 {this.state.subcodes.map((value) => <option>{value}</option>)}
                             </Input>
@@ -113,6 +117,10 @@ class Admin extends Component {
                         </Col>*/}
                     </FormGroup>
                     <Button onClick={this.onSubmithandler}>Submit</Button>
+                </Form>
+                <Form className='myContainer1'>
+                    <h2>Add Students</h2>
+                    <Input id='year'></Input>
                 </Form>
             </div>
         );

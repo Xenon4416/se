@@ -52,7 +52,12 @@ class SignIn extends Component {
                     if (res.status === 'success'){
                         console.log(res);
                         localStorage.setItem('token', res.token);
-                        this.setState({redir: <Redirect to='/admin'/>})
+                        localStorage.setItem('isLoggedIn', true);
+                        if (res.data.user.role === 'admin'){
+                            this.setState({redir: <Redirect to='/admin'/>})
+                        }else if(res.data.user.role === 'teacher'){
+                            this.setState({redir: <Redirect to='/teacher'/>})
+                        }
                     }
                 })
                 .catch(err => console.log(err));

@@ -39,7 +39,6 @@ class Teacher extends Component{
         }
         return(
             <div>
-
             <div>
                 <Card   text={"white"} body inverse style={{ backgroundColor: '#353A40', borderColor: '#333' }}>
 
@@ -66,7 +65,7 @@ class Teacher extends Component{
 
                 </FormGroup>
 
-                <FormGroup>
+                {/*<FormGroup>
                     <Label className="w-25" for="SelectYear">Year</Label>
                     <Input type="select" name="select" id="exampleSelect" o>
                         <option>First Year</option>
@@ -74,14 +73,13 @@ class Teacher extends Component{
                         <option>Third Year</option>
                         <option>Forth Year</option>
                     </Input>
-                </FormGroup>
-                <Button>Submit</Button>
+                </FormGroup>*/}
             </Form>
                 </Card>
             </div>
             <div>
                 <Card>
-                    <Table bordered dark >
+                    <Table className="myTable" bordered dark responsive >
                         <thead>
                         <tr>
                             <th>S.N</th>
@@ -101,6 +99,7 @@ class Teacher extends Component{
                     </Table>
                 </Card>
                 </div>
+                <a href="http://localhost:3000/api/record/report?class=073BEX&subjectCode=SH401&sem=1"><Button>Get EXCEL Report</Button></a>
             </div>
 
         );
