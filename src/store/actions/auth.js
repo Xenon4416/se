@@ -68,7 +68,7 @@ export const auth = (username, password) => {
                 // localStorage.setItem('role', res.data.user.role);
                 // dispatch(authSuccess(res.data.idToken, res.data.localId));
                 // dispatch(checkAuthTimeout(res.data.expiresIn));
-                // dispatch(setAuthRedirectPath());
+                // dispatch(setAuthRedirectPath()); TODO: check and set path
         //     })
         //     .catch(err => {
         //         dispatch(authFail(err));
@@ -91,7 +91,7 @@ export const auth = (username, password) => {
                 uri:"http://localhost:3000/api/users/login",
                 body:authData,
                 json:true
-            }
+            };
             // console.log("requesting");
             request(options).then((body)=>{
                 console.log(body);
@@ -101,8 +101,11 @@ export const auth = (username, password) => {
                 localStorage.setItem('role', body.data.user.role);
                 dispatch(authSuccess(body.token, body.data.user._id,body.data.user.role));
                 //dispatch(checkAuthTimeout(body.data.expiresIn));
-                dispatch(setAuthRedirectPath());
-            }).catch(err=>console.log("errorinside",err.message));
+                dispatch(setAuthRedirectPath('/'+body.data.user.role));
+            }).catch(err=> {
+                console.log("errorinside",err.message);
+                dispatch(authFail(authFail(err)));
+            });
             
         
     };

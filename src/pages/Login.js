@@ -28,13 +28,13 @@ class Login extends React.Component{
         }
 
         let authRedirect = null;
-        if (this.props.isAuthenticated !== '/') {
+        if (this.props.isAuthenticated) {
+            console.log('in redirect',this.props.authRedirectPath);
             authRedirect = <Redirect to={this.props.authRedirectPath}/>
         }
 
         return(
             <div>
-                {authRedirect}
             {errorMessage ? errorMessage : (
             <Form className="loginBody loginForm" onSubmit={ (e) => this.submitForm(e) }>
                     <img className="img" src="http://pcampus.edu.np/wp-content/uploads/2019/05/cropped-pcamus-header-image.jpg" alt="dfdsfdf"/>
@@ -73,6 +73,7 @@ class Login extends React.Component{
 
                     <Button className="text-white" onClick={(event) => this.onSubmitHandler(event)}>Submit</Button>
                 </Form>)}
+                {authRedirect}
             </div>
         );
     }
@@ -86,7 +87,8 @@ const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
-        isAuthenticated: state.auth.token !== null
+        isAuthenticated: state.auth.token !== null,
+        authRedirectPath: state.auth.authRedirectPath
     }
 };
 

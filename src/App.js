@@ -27,21 +27,21 @@ class App extends Component {
         if(this.props.isAuthenticated && this.props.role==="admin"){
             routes = (
                 <Switch>
-                    <Route path="/" component={Admin}/>
+                    <Route path="/admin" component={Admin}/>
                 </Switch>
             );
         }
         else if(this.props.isAuthenticated && this.props.role==="teacher"){
             routes = (
                 <Switch>
-                    <Route path="/" component={Teacher}/>
+                    <Route path="/teacher" component={Teacher}/>
                 </Switch>
             );
         }
         else if(this.props.isAuthenticated && this.props.role==="student"){
             routes = (
                 <Switch>
-                    <Route path="/" component={Student}/>
+                    <Route path="/student" component={Student}/>
                 </Switch>
             );
         }
@@ -57,6 +57,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
+        role: state.auth.role,
         isAuthenticated: state.auth.token !== null
     };
 };
