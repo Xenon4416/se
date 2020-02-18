@@ -3,8 +3,8 @@ import { updateObject } from '../utility';
 
 const initialState = {
     token: null,
-    userId: null,
-    idType: null,
+    id: null,
+    role: null,
     error: null,
     loading: false,
     authRedirectPath: '/'
@@ -15,13 +15,20 @@ const authStart = ( state, action ) => {
 };
 
 const authSuccess = (state, action) => {
-    return updateObject( state, { 
-        token: action.idToken,
-        userId: action.userId,
-        idType: action.idType,
-        error: null,
-        loading: false
-     } );
+    console.log("In auth suc reducer", action);
+    // return updateObject( state, { 
+    //     token: action.token,
+    //     id: action.id,
+    //     role: action.role,
+    //     error: null,
+    //     loading: false
+    //  } );
+    return {
+        ...state,
+        token:action.token,
+        id:action.id,
+        role:action.role
+    }
 };
 
 const authFail = (state, action) => {
@@ -32,7 +39,7 @@ const authFail = (state, action) => {
 };
 
 const authLogout = (state, action) => {
-    return updateObject(state, { token: null, userId: null, idType: null });
+    return updateObject(state, { token: null, id: null, role: null });
 };
 
 const setAuthRedirectPath = (state, action) => {

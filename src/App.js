@@ -4,6 +4,7 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import LogIn from './pages/Login';
 import Admin from './pages/Admin';
 import Teacher from './pages/Teacher';
+import Student from './pages/Student';
 import * as actions from './store/actions/auth';
 import { connect } from 'react-redux';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -12,71 +13,35 @@ import './App.css';
 
 
 class App extends Component {
-    /*state = {
-        displayMode: 'SignIn',
-        signin: { username: null, password: null },
-        isAuth: false
-    };*/
-
-/*    usernameChangeHandler = (event) => {
-        let temp = {...this.state.signin};
-        temp.username = event.target.value;
-        console.log('asd');
-        this.setState({signin: temp})
-    };
-
-    passwordChangeHandler = (event) => {
-        let temp = {...this.state.signin};
-        temp.password = event.target.value;
-        this.setState({signin: temp})
-    };
-
-    onSignInHandler = () => {
-        /!*fetch('http://localhost:3000/signin',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: this.state.signin.username,
-                password: this.state.signin.password
-            })
-        })
-            .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => console.log(err))*!/
-        this.setState({displayMode:'Teacher', isAuth: true})
-    };*/
     componentDidMount(){
         this.props.onTryAutoSignup();
-        // console.log(this.props);
+        console.log("in main page",this.props);
     }
     render(){
-        /*let mode = <Switch>
-            <Route path='/' exact render={() => <LogIn/>}/>
-            <Route path='/admin' exact render={() => <Admin/>}/>
-            <Route path='/teacher' exact render={()=><Teacher tutorClass="073BEX" subjectCode="SH401"/>}/>
-            <Redirect to='/'/>
-        </Switch>;*/
-        /*if (this.state.displayMode === 'SignIn'){
-            mode = <SignIn
-                username={this.usernameChangeHandler}
-                password={this.passwordChangeHandler}
-                signin={this.onSignInHandler}/>
-        }
-        else if (this.state.displayMode === 'Admin'){ mode = null }
-        else if (this.state.displayMode === 'Teacher'){ mode = null }
-        else if (this.state.displayMode === 'Student'){ mode = null }*/
         let routes = (
             <Switch>
                 <Route path="/" component={LogIn}/>
             </Switch>
         );
 
-        if(this.props.isAuthenticated){
+        if(this.props.isAuthenticated && this.props.role==="admin"){
             routes = (
                 <Switch>
-                    <Route path="/" component={LogIn}/>
+                    <Route path="/" component={Admin}/>
+                </Switch>
+            );
+        }
+        else if(this.props.isAuthenticated && this.props.role==="teacher"){
+            routes = (
+                <Switch>
+                    <Route path="/" component={Teacher}/>
+                </Switch>
+            );
+        }
+        else if(this.props.isAuthenticated && this.props.role==="student"){
+            routes = (
+                <Switch>
+                    <Route path="/" component={Student}/>
                 </Switch>
             );
         }
@@ -84,7 +49,7 @@ class App extends Component {
         return (
             <Fragment>
                 { routes }
-                {/*<StudentView roll={'asd'} name={'asdas'} pract_fm={'asd'}/>*/}
+                
             </Fragment>
         )
     }
@@ -92,6 +57,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
+        role: state.auth.role,
         isAuthenticated: state.auth.token !== null
     };
 };

@@ -11,7 +11,7 @@ class Teacher extends Component{
         studentRecords:[]
     };
     componentDidMount(){
-        console.log("In Teacher",this.props); // TODO: change the url to urls.js
+        console.log("In Teacher",this.props); // TODO: change the url to uris.js
         fetch(`http://localhost:3000/api/record?class=${this.props.tutorClass}&subjectCode=${this.props.subjectCode}&sem=1`)
                 .then(res => res.json())
                 .then(res => {

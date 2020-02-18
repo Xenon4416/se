@@ -1,7 +1,7 @@
 import axios from 'axios';
-
+import request from 'request-promise';
 import * as actionTypes from './actionTypes';
-import * as urls from '../urls';
+import * as uris from '../uris';
 
 export const authStart = () => {
     return {
@@ -9,12 +9,13 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId, idType) => {
+export const authSuccess = (token, id, role) => {
+    console.log("in authSuccess",token,id,role);
     return {
         type: actionTypes.AUTH_SUCCESS,
-        idToken: token,
-        userId: userId,
-        idType: idType // TODO: idtype info
+        token: token,
+        id: id,
+        role: role
     };
 };
 
@@ -49,30 +50,29 @@ export const auth = (username, password) => {
         const authData = {
             username: username,
             password: password,
-            returnSecureToken: true // TODO: needed?
         };
-        fetch(urls.LOGIN, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(authData)
-        })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res);
-                const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
-                localStorage.setItem('token', res.data.idToken);
-                localStorage.setItem('expirationDate', expirationDate);
-                localStorage.setItem('userId', res.data.localId);
-                localStorage.setItem('idType', res.data.idType);
-                dispatch(authSuccess(res.data.idToken, res.data.localId));
-                dispatch(checkAuthTimeout(res.data.expiresIn));
-                // dispatch(setAuthRedirectPath());
-            })
-            .catch(err => {
-                dispatch(authFail(err.res.data.error));
-        });
+        // fetch(uris.LOGIN, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(authData)
+        // })
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         console.log("got ",res);
+        //         //const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
+                // localStorage.setItem('token', res.data.idToken);
+                // //localStorage.setItem('expirationDate', expirationDate);
+                // localStorage.setItem('id', res.data.user._id);
+                // localStorage.setItem('role', res.data.user.role);
+                // dispatch(authSuccess(res.data.idToken, res.data.localId));
+                // dispatch(checkAuthTimeout(res.data.expiresIn));
+                // dispatch(setAuthRedirectPath()); TODO: check and set path
+        //     })
+        //     .catch(err => {
+        //         dispatch(authFail(err));
+        // });
         /*axios.post(url, authData)
             .then(res => {
                 console.log(res);
@@ -86,6 +86,28 @@ export const auth = (username, password) => {
             .catch(err => {
                 dispatch(authFail(err.res.data.error));
             });*/
+            const options={
+                method:'POST',
+                uri:uris.LOGIN,
+                body:authData,
+                json:true
+            };
+            // console.log("requesting");
+            request(options).then((body)=>{
+                console.log(body);
+                const expirationDate = new Date(new Date().getTime() + body.expires * 1000);
+                localStorage.setItem('token', body.token);
+                localStorage.setItem('expirationDate', expirationDate);
+                localStorage.setItem('id', body.data.user._id);
+                localStorage.setItem('role', body.data.user.role);
+                dispatch(authSuccess(body.token, body.data.user._id,body.data.user.role));
+                dispatch(checkAuthTimeout(body.expires));
+            }).catch(err=> {
+                console.log("errorinside",err.message);
+                dispatch(authFail(authFail(err)));
+            });
+            
+        
     };
 };
 
@@ -106,9 +128,9 @@ export const authCheckState = () => {
             if (expirationDate <= new Date()) {
                 dispatch(logout());
             } else {
-                const userId = localStorage.getItem('userId');
-                const idType = localStorage.getItem('idType');
-                dispatch(authSuccess(token, userId, idType));
+                const id = localStorage.getItem('id');
+                const role = localStorage.getItem('role');
+                dispatch(authSuccess(token, id, role));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }

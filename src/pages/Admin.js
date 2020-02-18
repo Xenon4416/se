@@ -40,6 +40,7 @@ class Admin extends Component {
     }
 
     onAddClickHandler(event){
+        // eslint-disable-next-line default-case
         switch (event.target.name) {
             case 'add':
                 let sel_batch = document.getElementById("batch");

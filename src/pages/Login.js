@@ -28,13 +28,12 @@ class Login extends React.Component{
         }
 
         let authRedirect = null;
-        if (this.props.isAuthenticated !== '/') {
+        if (this.props.isAuthenticated) {
             authRedirect = <Redirect to={this.props.authRedirectPath}/>
         }
 
         return(
             <div>
-                {authRedirect}
             {errorMessage ? errorMessage : (
             <Form className="loginBody loginForm" onSubmit={ (e) => this.submitForm(e) }>
                     <img className="img" src="http://pcampus.edu.np/wp-content/uploads/2019/05/cropped-pcamus-header-image.jpg" alt="dfdsfdf"/>
@@ -42,7 +41,7 @@ class Login extends React.Component{
                     <h2 className="hd2">Internal Marks Management</h2>
                     <FormGroup className="text-white">
 
-                        <Label >Username</Label>
+                        <Label style={{color:"#9cdcfe"}}>Username</Label>
                         <Input
                             type="text"
                             id="username"
@@ -60,11 +59,12 @@ class Login extends React.Component{
 
 
                     <FormGroup>
-                        <Label className="text-white" for="examplePassword">Password</Label>
+                        <Label style={{color:"#9cdcfe"}}  for="examplePassword">Password</Label>
                         <Input
                             type="password"
                             id="password"
                             placeholder="Enter the Password"
+                            
                             //value={ password }
                             // onChange={ (e) => this.handleChange(e) }
                         />
@@ -72,20 +72,18 @@ class Login extends React.Component{
 
                     <Button className="text-white" onClick={(event) => this.onSubmitHandler(event)}>Submit</Button>
                 </Form>)}
+                {authRedirect}
             </div>
         );
     }
-    //
-    // submitForm(e) {
-    //
-    // }
 }
 
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
-        isAuthenticated: state.auth.token !== null
+        isAuthenticated: state.auth.token !== null,
+        authRedirectPath: state.auth.authRedirectPath
     }
 };
 
