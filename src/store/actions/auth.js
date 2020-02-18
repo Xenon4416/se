@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import request from 'request-promise';
 import * as actionTypes from './actionTypes';
 import * as urls from '../urls';
 
@@ -49,30 +49,29 @@ export const auth = (username, password) => {
         const authData = {
             username: username,
             password: password,
-            returnSecureToken: true // TODO: needed?
         };
-        fetch(urls.LOGIN, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(authData)
-        })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res);
-                const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
-                localStorage.setItem('token', res.data.idToken);
-                localStorage.setItem('expirationDate', expirationDate);
-                localStorage.setItem('userId', res.data.localId);
-                localStorage.setItem('idType', res.data.idType);
-                dispatch(authSuccess(res.data.idToken, res.data.localId));
-                dispatch(checkAuthTimeout(res.data.expiresIn));
+        // fetch(urls.LOGIN, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(authData)
+        // })
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         console.log("got ",res);
+        //         //const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
+                // localStorage.setItem('token', res.data.idToken);
+                // //localStorage.setItem('expirationDate', expirationDate);
+                // localStorage.setItem('id', res.data.user._id);
+                // localStorage.setItem('role', res.data.user.role);
+                // dispatch(authSuccess(res.data.idToken, res.data.localId));
+                // dispatch(checkAuthTimeout(res.data.expiresIn));
                 // dispatch(setAuthRedirectPath());
-            })
-            .catch(err => {
-                dispatch(authFail(err.res.data.error));
-        });
+        //     })
+        //     .catch(err => {
+        //         dispatch(authFail(err));
+        // });
         /*axios.post(url, authData)
             .then(res => {
                 console.log(res);
@@ -86,6 +85,25 @@ export const auth = (username, password) => {
             .catch(err => {
                 dispatch(authFail(err.res.data.error));
             });*/
+            const options={
+                method:'POST',
+                uri:"http://localhost:3000/api/users/login",
+                body:authData,
+                json:true
+            }
+            // console.log("requesting");
+            request(options).then((body)=>{
+                console.log(body.token);
+                localStorage.setItem('token', body.token);
+                //localStorage.setItem('expirationDate', expirationDate);
+                localStorage.setItem('id', body.data.user._id);
+                localStorage.setItem('role', body.data.user.role);
+                dispatch(authSuccess(body.token, body.data._id));
+                //dispatch(checkAuthTimeout(body.data.expiresIn));
+                dispatch(setAuthRedirectPath());
+            }).catch(err=>console.log("errorinside",err.message));
+            
+        
     };
 };
 

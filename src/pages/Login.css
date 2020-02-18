@@ -10,7 +10,7 @@
     margin-right:auto;
     margin-top: 10%;
     background-color: #332455;
-    color:white;
+    color:#9cdcfe;
     box-shadow:5px 10px 60px 1px #121212;
 
 
@@ -34,7 +34,7 @@
 label {
     display: flex;
     font-weight: 600;
-
+    color:#9cdcfe
 }
 
 button {

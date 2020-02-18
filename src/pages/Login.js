@@ -42,7 +42,7 @@ class Login extends React.Component{
                     <h2 className="hd2">Internal Marks Management</h2>
                     <FormGroup className="text-white">
 
-                        <Label >Username</Label>
+                        <Label style={{color:"#9cdcfe"}}>Username</Label>
                         <Input
                             type="text"
                             id="username"
@@ -60,11 +60,12 @@ class Login extends React.Component{
 
 
                     <FormGroup>
-                        <Label className="text-white" for="examplePassword">Password</Label>
+                        <Label style={{color:"#9cdcfe"}}  for="examplePassword">Password</Label>
                         <Input
                             type="password"
                             id="password"
                             placeholder="Enter the Password"
+                            
                             //value={ password }
                             // onChange={ (e) => this.handleChange(e) }
                         />
