@@ -9,12 +9,13 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId, idType) => {
+export const authSuccess = (token, id, role) => {
+    console.log("in authSuccess",token,id,role);
     return {
         type: actionTypes.AUTH_SUCCESS,
-        idToken: token,
-        userId: userId,
-        idType: idType // TODO: idtype info
+        token: token,
+        id: id,
+        role: role // TODO: idtype info
     };
 };
 
@@ -93,12 +94,12 @@ export const auth = (username, password) => {
             }
             // console.log("requesting");
             request(options).then((body)=>{
-                console.log(body.token);
+                console.log(body);
                 localStorage.setItem('token', body.token);
                 //localStorage.setItem('expirationDate', expirationDate);
                 localStorage.setItem('id', body.data.user._id);
                 localStorage.setItem('role', body.data.user.role);
-                dispatch(authSuccess(body.token, body.data._id));
+                dispatch(authSuccess(body.token, body.data.user._id,body.data.user.role));
                 //dispatch(checkAuthTimeout(body.data.expiresIn));
                 dispatch(setAuthRedirectPath());
             }).catch(err=>console.log("errorinside",err.message));
