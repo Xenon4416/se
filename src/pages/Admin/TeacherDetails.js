@@ -4,7 +4,7 @@ import {
 } from 'reactstrap';
 import {ButtonGroup} from "react-bootstrap";
 
-export class Teachers extends React.Component {
+export class TeacherDetails extends React.Component {
     render() {
         return (
             <div>
