@@ -1,4 +1,4 @@
-.body {
+.loginBody {
 
     text-align: center;
     padding: 3em;
@@ -9,8 +9,8 @@
     margin-left: auto;
     margin-right:auto;
     margin-top: 10%;
-    background-color: #2a2438;
-
+    background-color: #332455;
+    color:white;
     box-shadow:5px 10px 60px 1px #121212;
 
 
@@ -18,13 +18,13 @@
 
 
 
-.form {
+/* .formBody {
     text-align: center;
-    padding: 5em;
+    padding: 20%;
     width: 40%;
     background-color:  #353A40;
     align-content: center;
-}
+} */
 
 .labelbig {
     display: flex;
