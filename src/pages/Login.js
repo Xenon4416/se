@@ -29,7 +29,6 @@ class Login extends React.Component{
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
-            console.log('in redirect',this.props.authRedirectPath);
             authRedirect = <Redirect to={this.props.authRedirectPath}/>
         }
 

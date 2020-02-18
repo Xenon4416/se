@@ -15,7 +15,7 @@ export const authSuccess = (token, id, role) => {
         type: actionTypes.AUTH_SUCCESS,
         token: token,
         id: id,
-        role: role // TODO: idtype info
+        role: role
     };
 };
 
@@ -95,13 +95,13 @@ export const auth = (username, password) => {
             // console.log("requesting");
             request(options).then((body)=>{
                 console.log(body);
+                const expirationDate = new Date(new Date().getTime() + body.expires * 1000);
                 localStorage.setItem('token', body.token);
-                //localStorage.setItem('expirationDate', expirationDate);
+                localStorage.setItem('expirationDate', expirationDate);
                 localStorage.setItem('id', body.data.user._id);
                 localStorage.setItem('role', body.data.user.role);
                 dispatch(authSuccess(body.token, body.data.user._id,body.data.user.role));
-                //dispatch(checkAuthTimeout(body.data.expiresIn));
-                dispatch(setAuthRedirectPath('/'));
+                dispatch(checkAuthTimeout(body.expires));
             }).catch(err=> {
                 console.log("errorinside",err.message);
                 dispatch(authFail(authFail(err)));
@@ -128,9 +128,9 @@ export const authCheckState = () => {
             if (expirationDate <= new Date()) {
                 dispatch(logout());
             } else {
-                const userId = localStorage.getItem('userId');
-                const idType = localStorage.getItem('idType');
-                dispatch(authSuccess(token, userId, idType));
+                const id = localStorage.getItem('id');
+                const role = localStorage.getItem('role');
+                dispatch(authSuccess(token, id, role));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }
