@@ -76,10 +76,6 @@ class Login extends React.Component{
             </div>
         );
     }
-    //
-    // submitForm(e) {
-    //
-    // }
 }
 
 const mapStateToProps = state => {
