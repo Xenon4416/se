@@ -3,6 +3,7 @@ import {Button, Form, FormGroup, Label, Input, FormText, Table} from 'reactstrap
 import {Card} from "react-bootstrap";
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import "./../App.css";
 class Teacher extends Component{
     state = {
         classes:[],

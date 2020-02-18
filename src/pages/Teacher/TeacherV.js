@@ -9,8 +9,41 @@ import {StudentList} from "./StudentList";
 
 
 export class TeacherV extends React.Component{
+    state = {
+        classes:[],
+        batch:"",
+        subcode:"",
+        studentRecords:[]
+    };
+    componentDidMount(){
+        console.log("In Teacher",this.props); // TODO: change the url to uris.js
+        //fetch(`http://localhost:3000/api/record/class?class=${this.props.tutorClass}&subjectCode=${this.props.subjectCode}&sem=1`)
+        fetch(`http://localhost:3000/api/record/class?class=074BCT&subjectCode=SH401&sem=1`)
+                .then(res => res.json())
+                .then(res => {
+                    console.log("second then",res);
+                    if (res.status === 'success'){
+                        this.setState({studentRecords:[...res.data]})
+                    }
+                })
+                .catch(err => console.log(err));
+    }
+
     render()
     {
+        let recordDatas=null;
+        if(this.state.studentRecords.length){
+            recordDatas=this.state.studentRecords.map((record,index)=>(
+                <tr key={record.username}>
+                    <td>{index+1}</td>
+                    <td>{record.username}</td>
+                    <td>20</td>
+                    <td>8</td>
+                    <td>{record.mark}</td>
+                    <td>Excellent</td>
+                 </tr>
+            ))
+        }
         return(
             <Container style={{  marginLeft:'150px',  marginTop:'-60px', width:'1300px'}}>
                 <Row style={{marginTop:'30px'}}>
@@ -139,115 +172,13 @@ export class TeacherV extends React.Component{
                                 <tr className="text-white">
                                     <th>S.N</th>
                                     <th>Roll No</th>
-                                    <th>Full Name</th>
                                     <th>Full Marks</th>
                                     <th>Pass Marks</th>
                                     <th>Marks Obtained</th>
-                                    <th>Total</th>
-                                    <th>Remarks</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr className="text-white">
-                                    <td>1</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>2</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>3</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>4</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>4</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>4</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>4</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>4</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>4</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
-                                <tr className="text-white">
-                                    <td>4</td>
-                                    <td>PUL074BCT005</td>
-                                    <td>Anjil Bishowkarma</td>
-                                    <td>100</td>
-                                    <td>80</td>
-                                    <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                                    <td>75</td>
-                                    <td>Excellent</td>
-                                </tr>
+                                {recordDatas}
                                 </tbody>
                                 <tr><Button outline color="success">Submit</Button></tr>
                             </Table>

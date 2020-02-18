@@ -2,14 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 // import SignIn from './pages/SignIn';
 import LogIn from './pages/Login';
-import Admin from './pages/Admin';
-import Teacher from './pages/Teacher';
+import Admin from './pages/Admin/Admin';
+import Teacher from './pages/Teacher/Teacher';
 import Student from './pages/Student';
 import * as actions from './store/actions/auth';
 import { connect } from 'react-redux';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 
 
 class App extends Component {
@@ -24,27 +23,27 @@ class App extends Component {
             </Switch>
         );
 
-        if(this.props.isAuthenticated && this.props.role==="admin"){
-            routes = (
-                <Switch>
-                    <Route path="/" component={Admin}/>
-                </Switch>
-            );
-        }
-        else if(this.props.isAuthenticated && this.props.role==="teacher"){
+        // if(this.props.isAuthenticated && this.props.role==="admin"){
+        //     routes = (
+        //         <Switch>
+        //             <Route path="/" component={Admin}/>
+        //         </Switch>
+        //     );
+        // }
+        if(this.props.isAuthenticated && this.props.role==="teacher"){
             routes = (
                 <Switch>
                     <Route path="/" component={Teacher}/>
                 </Switch>
             );
         }
-        else if(this.props.isAuthenticated && this.props.role==="student"){
-            routes = (
-                <Switch>
-                    <Route path="/" component={Student}/>
-                </Switch>
-            );
-        }
+        // else if(this.props.isAuthenticated && this.props.role==="student"){
+        //     routes = (
+        //         <Switch>
+        //             <Route path="/" component={Student}/>
+        //         </Switch>
+        //     );
+        // }
 
         return (
             <Fragment>
