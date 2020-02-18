@@ -1,7 +1,7 @@
 import axios from 'axios';
 import request from 'request-promise';
 import * as actionTypes from './actionTypes';
-import * as urls from '../urls';
+import * as uris from '../uris';
 
 export const authStart = () => {
     return {
@@ -51,7 +51,7 @@ export const auth = (username, password) => {
             username: username,
             password: password,
         };
-        // fetch(urls.LOGIN, {
+        // fetch(uris.LOGIN, {
         //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ export const auth = (username, password) => {
             });*/
             const options={
                 method:'POST',
-                uri:"http://localhost:3000/api/users/login",
+                uri:uris.LOGIN,
                 body:authData,
                 json:true
             };
