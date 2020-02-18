@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, Col, Button} from  'react-bootstrap';
-export class NewTeacher extends React.Component{
+export class AddNew extends React.Component{
     render(){
         return(
             <div>
