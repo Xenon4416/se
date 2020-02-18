@@ -101,7 +101,7 @@ export const auth = (username, password) => {
                 localStorage.setItem('role', body.data.user.role);
                 dispatch(authSuccess(body.token, body.data.user._id,body.data.user.role));
                 //dispatch(checkAuthTimeout(body.data.expiresIn));
-                dispatch(setAuthRedirectPath('/'+body.data.user.role));
+                dispatch(setAuthRedirectPath('/'));
             }).catch(err=> {
                 console.log("errorinside",err.message);
                 dispatch(authFail(authFail(err)));

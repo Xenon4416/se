@@ -27,21 +27,21 @@ class App extends Component {
         if(this.props.isAuthenticated && this.props.role==="admin"){
             routes = (
                 <Switch>
-                    <Route path="/admin" component={Admin}/>
+                    <Route path="/" component={Admin}/>
                 </Switch>
             );
         }
         else if(this.props.isAuthenticated && this.props.role==="teacher"){
             routes = (
                 <Switch>
-                    <Route path="/teacher" component={Teacher}/>
+                    <Route path="/" component={Teacher}/>
                 </Switch>
             );
         }
         else if(this.props.isAuthenticated && this.props.role==="student"){
             routes = (
                 <Switch>
-                    <Route path="/student" component={Student}/>
+                    <Route path="/" component={Student}/>
                 </Switch>
             );
         }
@@ -49,7 +49,7 @@ class App extends Component {
         return (
             <Fragment>
                 { routes }
-                {/*<StudentView roll={'asd'} name={'asdas'} pract_fm={'asd'}/>*/}
+                
             </Fragment>
         )
     }
