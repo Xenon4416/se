@@ -8,7 +8,7 @@ export class TeacherDetails extends React.Component {
     render() {
         return (
             <div>
-                <br/>
+                
                 <Card style={{backgroundColor: '#2a2438', padding:'10px', marginTop: '30px'}}>
                 <Table className="text-white">
                     <tr>

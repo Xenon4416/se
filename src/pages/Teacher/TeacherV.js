@@ -1,6 +1,5 @@
 import {Card, Col, Container, Row} from "react-bootstrap";
 
-
 import React from "react";
 import {CardBody, ButtonGroup, Button, CardTitle, Table} from "reactstrap";
 import CardText from "reactstrap/es/CardText";
@@ -45,32 +44,16 @@ export class TeacherV extends React.Component{
             ))
         }
         return(
-            <Container style={{  marginLeft:'150px',  marginTop:'-60px', width:'1300px'}}>
+                
+            <Container style={{backgroundColor: '#272a3d'}}>
                 <Row style={{marginTop:'30px'}}>
-                    <Col sm={3}>
-                        <Card  body style={{backgroundColor: '#2a2438', overflow: 'scroll', width: '250px', overflowX: 'hidden',  height: '600px' , border: '0px',boxShadow:'2px 2px 10px 0.01px #121212' }}>
+                    <Col sm={3}  md={3} lg={3}>
+                        <Card  body style={{backgroundColor: '#272a3d', overflow: 'scroll',height:'600px', overflowX: '100px', border: '0px',boxShadow:'2px 2px 10px 0.01px #121212' }}>
                                 <CardTitle  className="text-white text-center "><h4>Available Subjects</h4></CardTitle>
                                 <CardBody>
                                     <ButtonGroup style={{padding:'5px'}} vertical size="sm" >
                                         <ButtonGroup style={{padding:'5px'}}>
                                             <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'5px'}}>
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'5px'}}>
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'5px'}}>
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'5px'}}>
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
                                         </ButtonGroup>
                                         <ButtonGroup style={{padding:'5px'}}>
                                             <Button outline color="info">074BCT Software Engineering</Button>
@@ -84,14 +67,8 @@ export class TeacherV extends React.Component{
                                             <Button outline color="info">074BCT Software Engineering</Button>
 
                                         </ButtonGroup>
-                                        <ButtonGroup >
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup >
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
+                                       
+                                       
                                         <ButtonGroup style={{padding:'10px'}} size="lg">
                                             <Button outline color="info">074BCT Software Engineering</Button>
 
@@ -104,54 +81,7 @@ export class TeacherV extends React.Component{
                                             <Button outline color="info">074BCT Software Engineering</Button>
 
                                         </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
-                                        <ButtonGroup style={{padding:'10px'}} size="lg">
-                                            <Button outline color="info">074BCT Software Engineering</Button>
-
-                                        </ButtonGroup>
+                                        
                                         <ButtonGroup style={{padding:'10px'}} size="lg">
                                             <Button outline color="info">074BCT Software Engineering</Button>
 
@@ -161,10 +91,16 @@ export class TeacherV extends React.Component{
                                 </CardBody>
                         </Card>
                     </Col>
-                    <Col>
-                        <StudentList/>
+
+                    <Col sm={9}  md={9} lg={9}>
+                        
+                        <Card style={{overflow:'scroll',overflowX:'hidden',height:"600px", backgroundColor: '#272a3d'}}>
+                        <a href="http://localhost:3000/api/record/classReport?class=073BCT&subjectCode=SH401&sem=1" download><Button>Get Excel file</Button></a>
+                                <StudentList/>
+                        </Card>     
                     </Col>
-                    <Col>
+                    {
+                    /* <Col>
                         <Card style={{padding:'5px', backgroundColor: '#2a2438', width:'800px',height:'700px', border: '0px', overflow: 'scroll',boxShadow:'2px 2px 10px 0.01px #121212'}}>
                             <CardText className="text-white shadow">Enter Marks</CardText>
                             <Table borderless striped style={{backgroundColor: '#2a2438'}} >
@@ -183,9 +119,11 @@ export class TeacherV extends React.Component{
                                 <tr><Button outline color="success">Submit</Button></tr>
                             </Table>
                         </Card>
-                    </Col>
+                    </Col> */
+                    }
                 </Row>
             </Container>
+            
         );
     }
 }

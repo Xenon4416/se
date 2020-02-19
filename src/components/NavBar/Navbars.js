@@ -17,10 +17,11 @@ export class Navbars extends React.Component{
         const styles ={
 
             width:'100%',
-
-            border: '0px',
-            //boxShadow:'2px 2px 10px 0.01px #121212',
-
+            height:'20%',
+            border: '2px',
+            boxShadow:'2px 2px 10px 0.01px #121212',
+            padding:'8px 8px 8px 8px',
+            margin:'20px auto 15px auto '
         };
 
             return (
@@ -33,7 +34,6 @@ export class Navbars extends React.Component{
                             <NavbarText className="text-white">
                                 <i className="fa fa-bell"></i>
                             </NavbarText>
-
                     </Navbar>
 
                 </div>

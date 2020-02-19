@@ -14,7 +14,7 @@ export class MarksEntry extends React.Component {
         return(
             <div>
 
-                <br/>
+                
                 <Card style={{padding:'5px', backgroundColor: '#2a2438', width:'800px',height:'600px', border: '0px', overflow: 'scroll',boxShadow:'2px 2px 10px 0.01px #121212'}}>
                     <CardText className="text-white shadow">Enter Marks</CardText>
                     <Form style={{backgroundColor:'#2a2438', padding:'20px'}}>
@@ -31,7 +31,7 @@ export class MarksEntry extends React.Component {
 
 
                     </Form>
-                    <br/>
+                    
                     <Table borderless striped  bordered style={{backgroundColor: '#2a2438'}} >
                         <thead>
                         <tr className="text-white">

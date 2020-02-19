@@ -7,7 +7,7 @@ export class StudentList extends React.Component {
         return(
             <div>
 
-                <br/>
+                
                 <Card style={{padding:'5px', backgroundColor: '#2a2438', width:'800px',height:'700px', border: '0px', overflow: 'scroll',boxShadow:'2px 2px 10px 0.01px #121212'}}>
                     <Table responsive bordered style={{backgroundColor: '#2a2438'}} >
                         <thead>

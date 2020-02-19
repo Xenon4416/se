@@ -39,7 +39,7 @@ export class StudentV extends React.Component {
                         </tr>
                     </Table>
                 </Card>
-                <br/>
+                
                 <Card style={{padding:'10px',backgroundColor: '#272a3d', borderColor: '#272a3d',boxShadow:'2px 2px 10px 0.01px #121212'}} >
 
 
@@ -144,7 +144,7 @@ export class StudentV extends React.Component {
 
                     </Table>
                 </Card>
-                <br/>
+                
                 <Card body inverse style={{ backgroundColor: '#272a3d', borderColor: '#272a3d' ,boxShadow:'2px 2px 10px 0.01px #121212'}}>
                     <Table borderless className="text-white">
                         <tr>
@@ -160,7 +160,7 @@ export class StudentV extends React.Component {
                         </tr>
                     </Table>
                 </Card>
-                <br/>
+                
             </Container>
         );
     }

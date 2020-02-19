@@ -20,16 +20,18 @@ class Teacher extends Component {
         return (
             // <LoginForm/>
            <Container fluid>
-                <Col>
-                    <Navbars/>
-                </Col>
-                <Row>
-                    <Col className="navbar-collapse" style={{ position:'fixed', marginLeft: '30px', marginTop:'80px', width:'10%'  }} sm={3}>
+                <Row >
+                    <Col>
+                        <Navbars/>
+                    </Col>
+                </Row>
+                <Row >
+                    <Col sm={1}  md={1} lg={1}>
                         <SidebarUI/>
                     </Col>
-                            <Col style={{ marginTop:'75px', marginLeft: '0px', width:'md-auto'}} sm={3}>
-                                <TeacherV/>
-                            </Col>
+                    <Col  sm={11}  md={11} lg={11}>
+                            <TeacherV/>
+                    </Col>
                 </Row>
             </Container>
 

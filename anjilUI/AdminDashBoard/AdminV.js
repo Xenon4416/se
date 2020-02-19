@@ -123,7 +123,7 @@ export class Admin extends React.Component{
                             </Row>
 
                             <Row>
-                                <br/>
+                                
                                 <Card  body style={{marginTop: '20px', width:'1012px', backgroundColor: '#2a2438', padding:'3px', border: '0px',boxShadow:'2px 2px 10px 0.01px #121212'}}>
                                     <Tabs  defaultActiveKey="teacher" id="uncontrolled-tab-example">
                                         <Tab style={{backgroundColor: '#2a2438', padding:'10px'}} eventKey="teacher" title="Teacher List">

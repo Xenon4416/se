@@ -37,7 +37,7 @@ class Login extends React.Component{
             {errorMessage ? errorMessage : (
             <Form className="loginBody loginForm" onSubmit={ (e) => this.submitForm(e) }>
                     <img className="img" src="http://pcampus.edu.np/wp-content/uploads/2019/05/cropped-pcamus-header-image.jpg" alt="dfdsfdf"/>
-                    <br/>
+                    
                     <h2 className="hd2">Internal Marks Management</h2>
                     <FormGroup className="text-white">
 
