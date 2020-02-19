@@ -15,8 +15,8 @@ class Admin extends Component {
     }
     state = {
         classes:[],
-        batch:['074BCT','074BEX'],
-        subcodes:['SH401'],
+        batch:['073BCT','074BEX','073BEX'],
+        subcodes:['SH401','CE655','CT655'],
         displaySelection: true
     };
 
@@ -24,8 +24,8 @@ class Admin extends Component {
         let name = document.getElementById("name").value;
         let username = document.getElementById('username').value;
         let password = document.getElementById('password').value;
-        let reqBody = {name: name, username: username, password: password, classes: this.state.classes};
-        fetch('http://localhost:3000/api/users/assignTeacher',{
+        let reqBody = {username: username,classId:"073BCTCE655AB"};
+        fetch('http://localhost:3000/api/classes/addTeacher',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

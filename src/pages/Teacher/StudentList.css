@@ -1,0 +1,33 @@
+.scroll {
+    max-height: 9h;
+    overflow-y: auto;
+}
+
+.studentListCard{
+    margin:5vh auto;
+    background-color:#332455;
+    color:#2182f7;
+    max-height:85vh;
+}
+
+.StudentListScroll{
+    margin:20px;
+    overflow-y: scroll;
+    height: 85vh; 
+    color:#2182f7;
+}
+.studentListTable{
+    margin-bottom:20px;
+}
+.studentClassTitle{
+    text-align:center;
+}
+
+.studentTableHead{
+    background-color: black;
+  position: fixed;
+  top: 1;
+  z-index: 1;
+  width: calc(100% - 17px);
+  height: 31px;
+}

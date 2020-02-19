@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 // import SignIn from './pages/SignIn';
 import LogIn from './pages/Login';
-import Admin from './pages/Admin/Admin';
+import Admin from './pages/Admin';
 import Teacher from './pages/Teacher/Teacher';
 import Student from './pages/Student';
 import * as actions from './store/actions/auth';
@@ -23,13 +23,13 @@ class App extends Component {
             </Switch>
         );
 
-        // if(this.props.isAuthenticated && this.props.role==="admin"){
-        //     routes = (
-        //         <Switch>
-        //             <Route path="/" component={Admin}/>
-        //         </Switch>
-        //     );
-        // }
+        if(this.props.isAuthenticated && this.props.role==="admin"){
+            routes = (
+                <Switch>
+                    <Route path="/" component={Admin}/>
+                </Switch>
+            );
+        }
         if(this.props.isAuthenticated && this.props.role==="teacher"){
             routes = (
                 <Switch>
@@ -48,7 +48,6 @@ class App extends Component {
         return (
             <Fragment>
                 { routes }
-                
             </Fragment>
         )
     }

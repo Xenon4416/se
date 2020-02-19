@@ -1,16 +1,6 @@
 import React  from 'react';
-import {
-
-    Navbar,
-    NavbarBrand,
-    Nav,
-    NavItem,
-
-    NavbarText
-} from 'reactstrap';
-
-
-
+import {Navbar, NavbarBrand,Nav,NavItem,NavbarText} from 'reactstrap';
+import './NavBar.css'
 export class Navbars extends React.Component{
     render()
     {
@@ -26,8 +16,7 @@ export class Navbars extends React.Component{
 
             return (
                 <div>
-
-                    <Navbar style={styles}>
+                    <Navbar className="myNavBar">
                         <NavbarBrand style={{color: 'white'}} href="/">
                             <i className="fa fa-mortar-board"> Internal Marks Management System</i>
                             </NavbarBrand>

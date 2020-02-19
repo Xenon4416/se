@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button, Container,Form, FormGroup,Row, Col, Label, Input, Table} from 'reactstrap';
-import {Card} from "react-bootstrap";
-
+import {Button, Container,Form, FormGroup,Row, Col, Label, Input, Table, CardSubtitle} from 'reactstrap';
+import {Card,CardBody,CardTitle} from "reactstrap";
+import './StudentList.css';
 export class StudentList extends React.Component {
     state = {
         classes:[],
@@ -26,7 +26,7 @@ export class StudentList extends React.Component {
         let recordDatas=null;
         if(this.state.studentRecords.length){
             recordDatas=this.state.studentRecords.map((record,index)=>(
-                <tr style={{color:"white"}}>
+                <tr>
                     <td>{index+1}</td>
                     <td>{record.username}</td>
                     <td>20</td>
@@ -38,23 +38,32 @@ export class StudentList extends React.Component {
         }
         return(
             
-            <Container>
-                <Table responsive bordered style={{backgroundColor: '#2a2438'}} >
-                    <thead>
-                    <tr className="text-white">
-                        <th>S.N</th>
-                        <th>Roll No</th>
-                        <th>Full Name</th>
-                        <th>Full Marks</th>
-                        <th>Pass Marks</th>
-                        <th>Marks Obtained</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {recordDatas}
-                    </tbody>
-                </Table>
-            </Container>
+            <Card  className="studentListCard" >
+                <CardBody>
+                    <div className="studentClassTitle">
+                        <CardTitle >Tribhuwan University</CardTitle>
+                        <CardSubtitle>IOE,Pulchowk Campus Lalitpur</CardSubtitle>
+                    </div>
+                    <div className='StudentListScroll'>
+                        <Table className="studentListTable" bordered striped dark responsive >
+                            <thead className="studentTableHead">
+                            <tr>
+                                <th>S.N</th>
+                                <th>Roll No</th>
+                                <th>Full Name</th>
+                                <th>Full Marks</th>
+                                <th>Pass Marks</th>
+                                <th>Marks Obtained</th>
+                            </tr>
+                            </thead>
+                            <tbody className="scroll">
+                            {recordDatas}
+                            </tbody>
+                        </Table>
+                    </div>
+                </CardBody>
+                
+            </Card>
         );
     }
 }

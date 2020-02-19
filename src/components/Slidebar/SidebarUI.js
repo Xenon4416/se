@@ -7,9 +7,9 @@ export class SidebarUI extends React.Component{
     render()
     {
         return (
-            <Card body style={{backgroundColor: '#2182f7',  border: '0px',boxShadow:'2px 2px 10px 0.01px #121212', height:'md-auto', width:'100px', marginTop:'10px'}}>
+            <Card body style={{backgroundColor: '#2182f7',  border: '0px',boxShadow:'2px 2px 10px 0.01px #121212',width:'100px', marginTop:'10px'}}>
 
-                <Navbar style={{height:'500px', width:'75px'}} className=" flex-column" >
+                <Navbar style={{height:'80vh', width:'75px',margin:'auto'}} className=" flex-column" >
                             <NavbarBrand href="/components/">
                                 <i  className="fa fa-address-card-o text-center" style={{fontsize:'120px', color:'white'}}><h6>Admin</h6></i>
                             </NavbarBrand>
