@@ -9,6 +9,7 @@ import {Navbars} from './NewUI/components/NavBar/Navbars'
 //import {NavBars} from './NewUI/components/NavBar/Navbars.js'
 import {StudentList} from './NewUI/pages/Teacher/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
+import Teacher from './NewUI/pages/Teacher/Teacher';
 //import Student from './pages/Student';
 import {SidebarUI} from "./NewUI/components/Slidebar/SidebarUI";
 //import {MarksEntry} from './pages/Teacher/MarksEntry';
@@ -40,34 +41,31 @@ class App extends Component {
                      <Route path="/" component={Admin}/>
                  </Switch>
             );
-                }
-                else if(this.props.isAuthenticated && this.props.role==="teacher"){
-                    Switches = (
-                        <Switch>
-                            {/* <Route path="/" component={StudentListM}/> */}
-                            <Route path="/" component={MarksEntry}/>
-                        </Switch>
-                    );
-                }
+            }
+            else if(this.props.isAuthenticated && this.props.role==="teacher"){
+                Switches = (
+                    <Switch>
+                        {/* <Route path="/" component={StudentListM}/> */}
+                        <Route path="/" component={Teacher}/>
+                    </Switch>
+                );
+            }
 
-                routes=(
-                    <Container fluid={true}>
+            routes=(
+                <Container fluid={true}>
                     <Row>
                         <Col>
                             <Navbars/>
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={1}>
-                            <SidebarUI/>
-                        </Col>
                         <Col xs={11}>
-                        {Switches}
+                            {Switches}
                         </Col>
                     </Row>
                 </Container>
-                )
-            }
+            )
+        }
         return (
             <Fragment>
                 { routes }
