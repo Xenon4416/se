@@ -59,6 +59,9 @@ class App extends Component {
                         </Col>
                     </Row>
                     <Row>
+                        <Col xs={1}>
+                            <SidebarUI/>
+                        </Col>
                         <Col xs={11}>
                             {Switches}
                         </Col>

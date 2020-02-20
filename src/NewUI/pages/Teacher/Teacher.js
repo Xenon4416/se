@@ -12,18 +12,10 @@ import {TeacherV} from "./TeacherV";
 import TeacherMainPage from "./TeacherMainPage";
 // import {AdminV} from "../../../Pages/AdminDashBoard/AdminV";
 class Teacher extends Component {
+
     render() {
         return (
-           <Container fluid={true}>
-               <Row>
-                   <Col xs={1}>
-                       <SidebarUI/>
-                   </Col>
-                   <Col xs={11}>
-                        <MarksEntry/>
-                   </Col>
-               </Row>
-           </Container>
+               <MarksEntry/>
         );
     }
 }
