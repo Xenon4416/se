@@ -1,0 +1,31 @@
+.myCard {
+    background-color: #272a3d;
+    border: 0px;
+box-shadow:2px 2px 10px 0.01px #121212;
+    width:100px;
+    margin-top: 10px;
+}
+
+.myNav {
+    height: 80vh;
+    width: 12vh;
+    margin-top: 4vh;
+    background-color: #272a3d;
+    position: fixed;
+    box-shadow:2px 2px 10px 0.01px #121212;
+
+
+}
+.iconStyle {
+    font-size:120px;
+    color: white;
+}
+.textSize {
+    font-size: 14px;
+}
+.myNavBrand {
+    margin-left: 2vh;
+    margin-bottom: 5vh;
+    margin-top: 3vh;
+}
+/* }{backgroundColor: '#2182f7',  border: '0px',boxShadow:'2px 2px 10px 0.01px #121212',width:'100px', marginTop:'10px'} */
