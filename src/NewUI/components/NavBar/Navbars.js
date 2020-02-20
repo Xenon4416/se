@@ -20,4 +20,3 @@ export class Navbars extends React.Component{
             );
     }
 }
-
