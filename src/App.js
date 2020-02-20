@@ -11,7 +11,10 @@ import {StudentList} from './NewUI/pages/Teacher/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
 import Teacher from './NewUI/pages/Teacher/Teacher';
 //import Student from './pages/Student';
-import {SidebarUI} from "./NewUI/components/Slidebar/SidebarUI";
+import {Sidebar} from "./NewUI/components/Slidebar/Sidebar";
+import {SSidebar} from "./NewUI/components/Slidebar/SSidebar";
+import {ASidebar} from "./NewUI/components/Slidebar/ASidebar";
+
 //import {MarksEntry} from './pages/Teacher/MarksEntry';
 import * as actions from './store/actions/auth';
 import { connect } from 'react-redux';
@@ -28,6 +31,7 @@ class App extends Component {
     render(){
         let routes =null;
         let Switches=null;
+        let Sidebar=null;
         if (!this.props.isAuthenticated){
             routes=(
                 <Switch>
@@ -36,10 +40,10 @@ class App extends Component {
         }
         else {
             if(this.props.isAuthenticated && this.props.role==="admin"){
-            Switches = (
-                <Switch>
-                     <Route path="/" component={Admin}/>
-                 </Switch>
+                Switches = (
+                    <Switch>
+                        <Route path="/" component={Admin}/>
+                    </Switch>
             );
             }
             else if(this.props.isAuthenticated && this.props.role==="teacher"){
