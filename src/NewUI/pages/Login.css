@@ -1,0 +1,84 @@
+.loginBody {
+
+    text-align: center;
+    padding: 3em;
+    border: 0px solid #d3d3d3;
+    border-radius: 1.5em;
+    vertical-align: middle;
+    width: 40%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 10%;
+    background-color: #332455;
+    color:#9cdcfe;
+    box-shadow:5px 10px 60px 1px #121212;
+
+
+}
+
+
+
+/* .formBody {
+    text-align: center;
+    padding: 20%;
+    width: 40%;
+    background-color:  #353A40;
+    align-content: center;
+} */
+
+.labelbig {
+    display: flex;
+    font-weight: 700;
+}
+
+label {
+    display: flex;
+    font-weight: 600;
+    color:#9cdcfe
+}
+
+button {
+    justify-content: flex-end;
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.hd2 {
+    font-size: 30px;
+    padding: 1em;
+
+}
+
+.img {
+    width: auto;
+    height: 70px;
+}
+
+.bg-dark {
+    display: flow-root;
+    background-color: #121212;
+}
+
+.bg1 {
+    background-color: #2a2438;
+
+
+
+}
+.bg2 {
+    background-color: #2a2438;
+
+}
+.bg3 {
+    background-color: #310a5d;
+}

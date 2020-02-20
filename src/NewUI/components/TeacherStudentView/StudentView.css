@@ -1,0 +1,39 @@
+.Student {
+
+}
+.roll {
+    display: inline-block;
+    margin: 2px;
+}
+.name {
+    display: inline-block;
+    margin: 2px;
+}
+.pract_fm {
+    display: inline-block;
+    margin: 2px;
+}
+.assess_fm {
+    display: inline-block;
+    margin: 2px;
+}
+.pract_pm {
+    display: inline-block;
+    margin: 2px;
+}
+.assess_pm {
+    display: inline-block;
+    margin: 2px;
+}
+.pract_obt {
+    display: inline-block;
+    margin: 2px;
+}
+.assess_obt {
+    display: inline-block;
+    margin: 2px;
+}
+.remarks {
+    display: inline-block;
+    margin: 2px;
+}
