@@ -44,7 +44,7 @@ export class StudentList extends React.Component {
                         <CardTitle >Tribhuwan University</CardTitle>
                         <CardSubtitle>IOE,Pulchowk Campus Lalitpur</CardSubtitle>
                     </div>
-                    <div className='StudentListScroll'>
+                    <div className='StudentListScroll mySecodnd asdfas'>
                         <Table className="studentListTable" bordered striped dark responsive >
                             <thead className="studentTableHead">
                             <tr>

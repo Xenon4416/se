@@ -8,6 +8,7 @@ import Col from "reactstrap/es/Col";
 import {SidebarUI} from "../../components/Slidebar/SidebarUI";
 import Row from "reactstrap/es/Row";
 import {StudentList} from "./StudentList";
+import {MarksEntry} from './MarksEntry';
 //import {Admin} from "./Pages/AdminDashBoard/AdminV";
 //import {TeacherV} from "./Pages/TeacherDashboard/TeacherV";
 //import {StudentV} from "./Pages/StudentV";
@@ -18,14 +19,20 @@ import {TeacherV} from "./TeacherV";
 
 class Teacher extends Component {
     render() {
+        
         return (
            <Container fluid={true}>
+               <Row>
+                   <Col>
+
+                   </Col>
+               </Row>
                <Row>
                    <Col xs={1}>
                         <SidebarUI/>
                    </Col>
                    <Col xs={11}>
-                        <StudentList/>
+                        <MarksEntry/>
                    </Col>
                </Row>
            </Container>

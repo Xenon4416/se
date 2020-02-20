@@ -6,22 +6,39 @@ import CardText from "reactstrap/es/CardText";
 import Button from "reactstrap/es/Button";
 import Form from "reactstrap/es/Form";
 import {Col, Row} from 'reactstrap';
-
-
-
+import {Fragment } from 'react'
 export class MarksEntry extends React.Component {
+    constructor(props){
+        super(props);
+        this.inputs=[];
+        this.myRef=React.createRef();
+    }
+    buttonHandler=()=>{
+        console.log("In button handler: ",this.inputs);
+        
+        this.inputs["input2"].focus();
+    }
+    componentDidMount(){
+        //this.inputs["input2"].focus();
+        console.log(this.myRef.current);
+        this.myRef.current.focus();
+    }
+    componentDidUpdate(){
+        console.log("here:",this.myRef);
+        this.myRef.current.focus();
+    }
     render() {
         return(
-            <div>
-
-                
+            <Fragment>
+                <input type="text" ref={this.myRef} id="name" name="name" required minlength="4" maxlength="8" size="10"></input>
+                <input type="text" ref={input=>{this.inputs["input2"]=input}} id="name2" name="name2" required minlength="4" maxlength="8" size="10"></input>
                 <Card style={{padding:'5px', backgroundColor: '#2a2438', width:'800px',height:'600px', border: '0px', overflow: 'scroll',boxShadow:'2px 2px 10px 0.01px #121212'}}>
                     <CardText className="text-white shadow">Enter Marks</CardText>
                     <Form style={{backgroundColor:'#2a2438', padding:'20px'}}>
 
                         <Row>
                             <Col sm={6}>
-                                <Input type="select">
+                                <Input  type="select">
                                     <option>Select Subject</option>
                                     <option>Software Engineering</option>
                                 </Input>
@@ -62,7 +79,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
+                            <td><Input>Enter HERE</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -72,7 +89,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
+                            <td><Input  style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -86,56 +103,7 @@ export class MarksEntry extends React.Component {
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
-                        <tr className="text-white">
-                            <td>4</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td>4</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td>4</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td>4</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td>4</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input style={{backgroundColor: '#2a2438'}}>Enter HERE</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
+                        
                         <tr className="text-white">
                             <td>4</td>
                             <td>PUL074BCT005</td>
@@ -147,10 +115,10 @@ export class MarksEntry extends React.Component {
                             <td>Excellent</td>
                         </tr>
                         </tbody>
-                        <tr><Button outline color="success">Submit</Button></tr>
+                        <tr><Button onClick={this.buttonHandler} outline color="success">Submit</Button></tr>
                     </Table>
                 </Card>
-            </div>
+            </Fragment>
         );
     }
 }
