@@ -10,7 +10,10 @@ import {Navbars} from './NewUI/components/NavBar/Navbars'
 import {StudentList} from './NewUI/pages/Teacher/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
 //import Student from './pages/Student';
-import {SidebarUI} from "./NewUI/components/Slidebar/SidebarUI";
+import {TSidebar} from "./NewUI/components/Slidebar/TSidebar";
+import {SSidebar} from "./NewUI/components/Slidebar/SSidebar";
+import {ASidebar} from "./NewUI/components/Slidebar/ASidebar";
+
 //import {MarksEntry} from './pages/Teacher/MarksEntry';
 import * as actions from './store/actions/auth';
 import { connect } from 'react-redux';
@@ -27,6 +30,7 @@ class App extends Component {
     render(){
         let routes =null;
         let Switches=null;
+        let Sidebar=null;
         if (!this.props.isAuthenticated){
             routes=(
                 <Switch>
@@ -35,13 +39,15 @@ class App extends Component {
         }
         else {
             if(this.props.isAuthenticated && this.props.role==="admin"){
-            Switches = (
-                <Switch>
-                     <Route path="/" component={Admin}/>
-                 </Switch>
+                Sidebar=(<ASidebar/>)
+                Switches = (
+                    <Switch>
+                        <Route path="/" component={Admin}/>
+                    </Switch>
             );
                 }
                 else if(this.props.isAuthenticated && this.props.role==="teacher"){
+                    Sidebar=(<TSidebar/>)
                     Switches = (
                         <Switch>
                             {/* <Route path="/" component={StudentListM}/> */}
@@ -59,7 +65,7 @@ class App extends Component {
                     </Row>
                     <Row>
                         <Col xs={1}>
-                            <SidebarUI/>
+                            {Sidebar}
                         </Col>
                         <Col xs={11}>
                         {Switches}

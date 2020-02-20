@@ -3,7 +3,7 @@ import React from "react";
 import NavbarBrand from "reactstrap/es/NavbarBrand";
 
 
-export class SidebarUI extends React.Component{
+export class Tsidebar extends React.Component{
     render()
     {
         return (
