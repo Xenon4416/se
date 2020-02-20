@@ -70,7 +70,7 @@ class Admin extends Component {
     render(){
         return (
             <div>
-                <Form className="myContainer">
+                <Form className="myContainer text-white">
                     <FormGroup>
                         <h2>Add Teacher</h2>
                     </FormGroup>

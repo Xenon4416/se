@@ -10,19 +10,14 @@ import {MarksEntry} from "./MarksEntry";
 import {StudentList} from "./StudentList";
 import {TeacherV} from "./TeacherV";
 import TeacherMainPage from "./TeacherMainPage";
-import {AdminV} from "../../../Pages/AdminDashBoard/AdminV";
+// import {AdminV} from "../../../Pages/AdminDashBoard/AdminV";
 class Teacher extends Component {
     render() {
         return (
            <Container fluid={true}>
                <Row>
-                   <Col>
-                       <Navbars/>
-                   </Col>
-               </Row>
-               <Row>
                    <Col xs={1}>
-                        <SidebarUI/>
+                       <SidebarUI/>
                    </Col>
                    <Col xs={11}>
                         <MarksEntry/>

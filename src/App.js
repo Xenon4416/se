@@ -9,8 +9,9 @@ import {Navbars} from './NewUI/components/NavBar/Navbars'
 //import {NavBars} from './NewUI/components/NavBar/Navbars.js'
 import {StudentList} from './NewUI/pages/Teacher/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
+import Teacher from './NewUI/pages/Teacher/Teacher';
 //import Student from './pages/Student';
-import {TSidebar} from "./NewUI/components/Slidebar/TSidebar";
+import {Sidebar} from "./NewUI/components/Slidebar/Sidebar";
 import {SSidebar} from "./NewUI/components/Slidebar/SSidebar";
 import {ASidebar} from "./NewUI/components/Slidebar/ASidebar";
 
@@ -39,41 +40,36 @@ class App extends Component {
         }
         else {
             if(this.props.isAuthenticated && this.props.role==="admin"){
-                Sidebar=(<ASidebar/>)
                 Switches = (
                     <Switch>
                         <Route path="/" component={Admin}/>
                     </Switch>
             );
-                }
-                else if(this.props.isAuthenticated && this.props.role==="teacher"){
-                    Sidebar=(<TSidebar/>)
-                    Switches = (
-                        <Switch>
-                            {/* <Route path="/" component={StudentListM}/> */}
-                            <Route path="/" component={MarksEntry}/>
-                        </Switch>
-                    );
-                }
+            }
+            else if(this.props.isAuthenticated && this.props.role==="teacher"){
+                Switches = (
+                    <Switch>
+                        {/* <Route path="/" component={StudentListM}/> */}
+                        <Route path="/" component={Teacher}/>
+                    </Switch>
+                );
+            }
 
-                routes=(
-                    <Container fluid={true}>
+            routes=(
+                <Container fluid={true}>
                     <Row>
                         <Col>
                             <Navbars/>
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={1}>
-                            {Sidebar}
-                        </Col>
                         <Col xs={11}>
-                        {Switches}
+                            {Switches}
                         </Col>
                     </Row>
                 </Container>
-                )
-            }
+            )
+        }
         return (
             <Fragment>
                 { routes }

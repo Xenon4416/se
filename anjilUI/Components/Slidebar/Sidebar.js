@@ -3,10 +3,11 @@ import React from "react";
 import NavbarBrand from "reactstrap/es/NavbarBrand";
 
 
-export class Tsidebar extends React.Component{
+export class Sidebar extends React.Component{
     render()
     {
         return (
+            
             <Card body style={{backgroundColor: '#2182f7',  border: '0px',boxShadow:'2px 2px 10px 0.01px #121212', height:'md-auto', width:'100px', marginTop:'10px'}}>
 
                 <Navbar style={{height:'500px', width:'75px'}} className=" flex-column" >
