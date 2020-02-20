@@ -1,8 +1,8 @@
-import {Card, Navbar} from "react-bootstrap";
+import { Navbar} from "react-bootstrap";
 import React from "react";
 import NavbarBrand from "reactstrap/es/NavbarBrand";
 import './SideBar.css'
-import NavbarText from "reactstrap/es/NavbarText";
+import {UncontrolledTooltip} from 'reactstrap';
 
 export class SidebarUI extends React.Component{
     render()
@@ -10,22 +10,37 @@ export class SidebarUI extends React.Component{
         return (
                 <Navbar  className="myNav flex-column" >
 
-                            <NavbarBrand className="myNavBrand text-white" href="/components/">
-                                <i className="fa fa-address-card-o text-center"><h6 className="textSize">Admin</h6></i>
+                            <NavbarBrand className="myNavBrand text-success" href="/components/">
+                                <UncontrolledTooltip placement="right" target="admin">
+                                    Admin Panel
+                                </UncontrolledTooltip>
+                                <i className="fa fa-address-card-o text-center" id="admin">   </i>
 
                             </NavbarBrand>
 
-                            <NavbarBrand className="myNavBrand text-white" href="/components/">
-                                <i className="fa fa-television text-center"><h6 className="textSize">Teacher</h6></i>
+                            <NavbarBrand className="myNavBrand text-success" href="/components/">
+                                <UncontrolledTooltip placement="right" target="teacher">
+                                    Teacher Dashboard
+                                </UncontrolledTooltip>
+                                <i className="fa fa-television text-center" id="teacher"></i>
                             </NavbarBrand>
-                            <NavbarBrand className="myNavBrand text-white" href="/components/">
-                                <i  className="fa fa-plus text-center"><h6 className="textSize">New</h6></i>
+                            <NavbarBrand className="myNavBrand text-success" href="/components/">
+                                <UncontrolledTooltip placement="right" target="new">
+                                    Add Teacher/Student Account
+                                </UncontrolledTooltip>
+                                <i  className="fa fa-plus text-center" id="new"></i>
                             </NavbarBrand>
-                            <NavbarBrand className="myNavBrand text-white" href="/components/">
-                                <i  className="fa fa-pencil-square-o text-center" style={{fontsize:'72px', color:'white'}}><h6 className="textSize">Entry</h6></i>
+                            <NavbarBrand className="myNavBrand text-success" href="/components/">
+                                <UncontrolledTooltip placement="right" target="marksentry">
+                                    Marks Entry
+                                </UncontrolledTooltip>
+                                <i  className="fa fa-pencil-square-o text-center" id="marksentry" ></i>
                             </NavbarBrand>
-                            <NavbarBrand className="myNavBrand" href="/components/">
-                                <i  className="fa fa-television text-center" style={{fontsize:'72px', color:'white'}}><h6 className="textSize">Student</h6></i>
+                            <NavbarBrand className="myNavBrand text-success" href="/components/">
+                                <UncontrolledTooltip placement="right" target="studentv">
+                                    Student View
+                                </UncontrolledTooltip>
+                                <i  className="fa fa-television text-center" id="studentv"></i>
                         </NavbarBrand>
 
                 </Navbar>

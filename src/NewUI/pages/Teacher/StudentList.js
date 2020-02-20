@@ -49,68 +49,7 @@ export class StudentList extends React.Component {
                         <CardSubtitle>IOE, Pulchowk Campus, Lalitpur</CardSubtitle>
                         <CardBody>
                         <CardText>Bachelor's Degree in Computer Engineering</CardText>
-                        <CardText>Group<Form className="GroupSelectForm" >
-                                    <Input type="select">
-                                        <option>A</option>
-                                        <option>B</option>
-                                    </Input>
-                                    </Form>
-                        </CardText>
-                        <CardText className="groupYPB">
 
-                            <Row form>
-                                <Col  md={2}>
-                                    <FormGroup>
-                                        <Label for="">Year</Label>
-                                        <Input type="select" name="year" id="year">
-                                            <option>Select Year</option>
-                                            <option>First</option>
-                                            <option>Second</option>
-                                            <option>Third</option>
-                                            <option>Four</option>
-                                        </Input>
-                                    </FormGroup>
-                                </Col>
-                                <Col md={2}>
-                                    <FormGroup>
-                                        <Label for="part">Part</Label>
-                                        <Input type="select" name="state" id="part">
-                                            <option>Select Part </option>
-                                        <option>Odd</option>
-                                            <option>Even</option>
-                                        </Input>
-                                    </FormGroup>
-                                </Col>
-                                <Col md={2}>
-                                    <FormGroup>
-                                        <Label for="batch">Batch</Label>
-                                        <Input type="text" name="batch" id="batch"/>
-                                    </FormGroup>
-                                </Col>
-                            </Row>
-                            <Row>
-
-                                    <Col md={6}>
-                                        <FormGroup>
-                                            <Label for="">Subject</Label>
-                                            <Input  type="select" name="subject" id="subject">
-                                                <option>Select Subject</option>
-                                                <option>Computer Graphics</option>
-                                                <option>Computer Architecture and Organization</option>
-                                                <option>Software Engineering</option>
-                                                <option>Probability and Statistics</option>
-                                            </Input>
-                                        </FormGroup>
-                                    </Col>
-
-                            </Row>
-                            <Row className="paB">
-                                <Col md={6}>
-                                    <Button outline color="success" >Proceed</Button>
-                                </Col>
-                            </Row>
-
-                          </CardText>
                         </CardBody>
 
                     </div>

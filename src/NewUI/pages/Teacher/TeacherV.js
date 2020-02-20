@@ -45,8 +45,8 @@ export class TeacherV extends React.Component{
         }
         return(
                 
-            <Container style={{backgroundColor: '#272a3d'}}>
-                <Row style={{marginTop:'30px'}}>
+            <Container >
+                <Row >
                     <Col sm={3}  md={3} lg={3}>
                         <Card  body style={{backgroundColor: '#272a3d', overflow: 'scroll',height:'600px', overflowX: '100px', border: '0px',boxShadow:'2px 2px 10px 0.01px #121212' }}>
                                 <CardTitle  className="text-white text-center "><h4>Available Subjects</h4></CardTitle>

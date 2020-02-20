@@ -5,7 +5,7 @@ import Button from "reactstrap/es/Button";
 import Form from "reactstrap/es/Form";
 import {Col, Row} from 'reactstrap';
 import './MarksEntry.css'
-
+import tu from "../../assests/tu logo official.png"
 
 export class MarksEntry extends React.Component {
     render() {
@@ -14,11 +14,9 @@ export class MarksEntry extends React.Component {
                     <Form className="myForm">
 
                         <Row>
-                            <Col sm={6}>
-                                <Input type="select">
-                                    <option>Select Subject</option>
-                                    <option>Software Engineering</option>
-                                </Input>
+                            <Col className="text-center">
+                                <h4 className="text-white">IOE is Greater than TU</h4>
+                                <img width="90vh" height="100vh" src={tu} alt="tulogo"/>
                             </Col>
                         </Row>
                     </Form>
