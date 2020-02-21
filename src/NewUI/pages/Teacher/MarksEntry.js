@@ -41,7 +41,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -51,7 +51,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -61,7 +61,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -71,7 +71,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -81,7 +81,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input >Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -91,7 +91,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -101,7 +101,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -111,7 +111,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -121,7 +121,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>
@@ -131,7 +131,7 @@ export class MarksEntry extends React.Component {
                             <td>Anjil Bishowkarma</td>
                             <td>100</td>
                             <td>80</td>
-                            <td><Input>Enter Marks</Input></td>
+                            <td><Input className="myInput">Enter Marks</Input></td>
                             <td>75</td>
                             <td>Excellent</td>
                         </tr>

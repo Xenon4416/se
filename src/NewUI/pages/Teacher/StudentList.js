@@ -39,20 +39,8 @@ class StudentList extends React.Component {
     }
     render() {
         let recordDatas = this.props.classStudentValues.find((cls) => this.props.activeClass === cls.Class);
-        // if(this.state.studentRecords.length){
-        //     recordDatas=this.state.studentRecords.map((record,index)=>(
-        //         <tr>
-        //             <td>{index+1}</td>
-        //             <td>{record.username}</td>
-        //             <td>20</td>
-        //             <td>8</td>
-        //             <td>{record.test}</td>
-        //             <td>Excellent</td>
-        //          </tr>
-        //     ))
-        // }
         return(
-
+            
             <Card className="myCardStyle">
 
                     <div className="studentClassTitle">

@@ -14,3 +14,11 @@
 .myTable {
     padding: 2vh;
 }
+.myInput {
+    background-color:#022c43;
+    color:white;
+}
+.myInput:focus {
+    background-color:#3c4f65;
+    color:white;
+}

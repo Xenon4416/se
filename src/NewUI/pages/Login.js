@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Login.css";
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Container,Label, Input, Row,Col,Button } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/auth';
@@ -35,7 +35,10 @@ class Login extends React.Component{
         return(
             <div>
             {errorMessage ? errorMessage : (
-            <Form className="loginBody loginForm" onSubmit={ (e) => this.submitForm(e) }>
+            <Container>
+                <Row>
+                    <Col xs={12} md={8} lg={6}>
+                    <Form className="loginBody loginForm" onSubmit={ (e) => this.submitForm(e) }>
                     <img className="img" src="http://pcampus.edu.np/wp-content/uploads/2019/05/cropped-pcamus-header-image.jpg" alt="dfdsfdf"/>
                     
                     <h2 className="hd2">Internal Marks Management</h2>
@@ -71,7 +74,11 @@ class Login extends React.Component{
                     </FormGroup>
 
                     <Button className="btn btn-dark" onClick={(event) => this.onSubmitHandler(event)}>Submit</Button>
-                </Form>)}
+                </Form>
+                    </Col>
+                </Row>
+            </Container>
+            )}
                 {authRedirect}
             </div>
         );

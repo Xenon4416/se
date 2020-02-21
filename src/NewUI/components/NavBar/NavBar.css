@@ -1,7 +1,14 @@
 .myNavBar{
-    height:10vh;
     box-shadow:2px 2px 10px 0.01px #121212;
     background-color: #272a3d;
+    padding-bottom:1vh;
 
 }
+.text-white{
+    font-size:2vh;
+}
+.myButton{
+    font-size:2vh;
+}
+
 
