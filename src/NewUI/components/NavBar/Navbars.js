@@ -1,8 +1,14 @@
 import React  from 'react';
-import {Navbar, NavbarBrand,NavbarText} from 'reactstrap';
+import {Navbar, NavbarBrand,NavbarText, Button} from 'reactstrap';
+import { connect } from 'react-redux';
 import './NavBar.css'
 import tuLogo from "../../assests/tu logo official.png";
-export class Navbars extends React.Component{
+import * as actions from "../../store/actions/auth";
+class Navbars extends React.Component{
+    onLogutHandler(event){
+        event.preventDefault();
+        this.props.onLogOut();
+    }
     render()
     {
             return (
@@ -12,10 +18,19 @@ export class Navbars extends React.Component{
                             <img width="40vh" height="50vh" src={tuLogo} alt="." /> Internal Marks Management System
                             </NavbarBrand>
                             <NavbarText className="text-white">
-                                <a className="text-white" href="/admin" ><h6>Logout <i className="fa fa-sign-out text-danger"> </i></h6></a>
+                                <Button className="btn btn-dark" onClick={(event) => this.onLogutHandler(event)}>Log Out <i className="fa fa-sign-out text-danger"> </i></Button>
+                                {/*<a className="text-white" onClick={(event) => this.onLogutHandler(event)}><h6>Logout <i className="fa fa-sign-out text-danger"> </i></h6></a>*/}
                             </NavbarText>
                     </Navbar>
                 </div>
             );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogOut: () => dispatch(actions.logout())
+    }
+};
+
+export default connect(null, mapDispatchToProps)(Navbars);

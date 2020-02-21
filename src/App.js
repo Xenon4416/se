@@ -5,15 +5,15 @@ import {Container,Row,Col} from 'reactstrap';
 // import SignIn from './pages/SignIn';
 import LogIn from './pages/Login';
 import Admin from './pages/Admin';
-import {Navbars} from './NewUI/components/NavBar/Navbars'
+import Navbars from './NewUI/components/NavBar/Navbars'
 //import {NavBars} from './NewUI/components/NavBar/Navbars.js'
 import {StudentList} from './NewUI/pages/Teacher/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
 import Teacher from './NewUI/pages/Teacher/Teacher';
 //import Student from './pages/Student';
-import {Sidebar} from "./NewUI/components/Slidebar/Sidebar";
-import {SSidebar} from "./NewUI/components/Slidebar/SSidebar";
-import {ASidebar} from "./NewUI/components/Slidebar/ASidebar";
+import {SidebarUI} from "./NewUI/components/Slidebar/SidebarUI";
+// import {SSidebar} from "./NewUI/components/Slidebar/SSidebar";
+// import {ASidebar} from "./NewUI/components/Slidebar/ASidebar";
 
 //import {MarksEntry} from './pages/Teacher/MarksEntry';
 import * as actions from './store/actions/auth';

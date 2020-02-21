@@ -70,7 +70,7 @@ class Login extends React.Component{
                         />
                     </FormGroup>
 
-                    <Button className="text-white" onClick={(event) => this.onSubmitHandler(event)}>Submit</Button>
+                    <Button className="btn btn-dark" onClick={(event) => this.onSubmitHandler(event)}>Submit</Button>
                 </Form>)}
                 {authRedirect}
             </div>
