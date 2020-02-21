@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import './NavBar.css'
 import tuLogo from "../../assests/tu logo official.png";
 import * as actions from "../../store/actions/auth";
+import {resetTeacherState} from "../../store/actions/teacher";
 class Navbars extends React.Component{
     onLogutHandler(event){
         event.preventDefault();
+        this.props.resetTeacherState();
         this.props.onLogOut();
     }
     render()
@@ -29,6 +31,7 @@ class Navbars extends React.Component{
 
 const mapDispatchToProps = dispatch => {
     return {
+        resetTeacherState: () => dispatch(resetTeacherState()),
         onLogOut: () => dispatch(actions.logout())
     }
 };

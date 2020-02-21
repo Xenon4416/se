@@ -9,12 +9,12 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, id, role) => {
-    console.log("in authSuccess",token,id,role);
+export const authSuccess = (token, username, role) => {
+    console.log("in authSuccess",token,username,role);
     return {
         type: actionTypes.AUTH_SUCCESS,
         token: token,
-        id: id,
+        username: username,
         role: role
     };
 };
@@ -29,7 +29,7 @@ export const authFail = (error) => {
 export const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
-    localStorage.removeItem('id');
+    localStorage.removeItem('username');
     localStorage.removeItem('role');
     return {
         type: actionTypes.AUTH_LOGOUT
@@ -98,9 +98,9 @@ export const auth = (username, password) => {
                 const expirationDate = new Date(new Date().getTime() + body.expires * 1000);
                 localStorage.setItem('token', body.token);
                 localStorage.setItem('expirationDate', expirationDate);
-                localStorage.setItem('id', body.data.user._id);
+                localStorage.setItem('username', authData.username);
                 localStorage.setItem('role', body.data.user.role);
-                dispatch(authSuccess(body.token, body.data.user._id,body.data.user.role));
+                dispatch(authSuccess(body.token,authData.username, body.data.user.role));
                 dispatch(checkAuthTimeout(body.expires));
             }).catch(err=> {
                 console.log("errorinside",err.message);
@@ -128,9 +128,9 @@ export const authCheckState = () => {
             if (expirationDate <= new Date()) {
                 dispatch(logout());
             } else {
-                const id = localStorage.getItem('id');
+                const username = localStorage.getItem('username');
                 const role = localStorage.getItem('role');
-                dispatch(authSuccess(token, id, role));
+                dispatch(authSuccess(token, username, role));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }

@@ -23,7 +23,7 @@ class Login extends React.Component{
         let errorMessage = null;
         if (this.props.error) {
             errorMessage = (
-                <p>{this.props.error.message}</p>
+                <p>{this.props.error}</p>
             );
         }
 

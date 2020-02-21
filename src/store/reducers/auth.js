@@ -15,7 +15,7 @@ const authStart = ( state, action ) => {
 };
 
 const authSuccess = (state, action) => {
-    console.log("In auth suc reducer", action);
+    console.log("In auth suc reducer", state);
     // return updateObject( state, { 
     //     token: action.token,
     //     id: action.id,

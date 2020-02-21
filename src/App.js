@@ -3,20 +3,20 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import {Container,Row,Col} from 'reactstrap';
 //import {StudentList} from "./pages/Teacher/StudentList";
 // import SignIn from './pages/SignIn';
-import LogIn from './pages/Login';
-import Admin from './pages/Admin';
+import LogIn from '../src/NewUI/pages/Login';
+import Admin from '../src/NewUI/pages/Admin';
 import Navbars from './NewUI/components/NavBar/Navbars'
 //import {NavBars} from './NewUI/components/NavBar/Navbars.js'
 import {StudentList} from './NewUI/pages/Teacher/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
 import Teacher from './NewUI/pages/Teacher/Teacher';
 //import Student from './pages/Student';
-import {SidebarUI} from "./NewUI/components/Slidebar/SidebarUI";
+import SidebarTeacher from "./NewUI/components/Slidebar/SidebarTeacher";
 // import {SSidebar} from "./NewUI/components/Slidebar/SSidebar";
 // import {ASidebar} from "./NewUI/components/Slidebar/ASidebar";
 
 //import {MarksEntry} from './pages/Teacher/MarksEntry';
-import * as actions from './store/actions/auth';
+import * as actions from '../src/NewUI/store/actions/auth';
 import { connect } from 'react-redux';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -51,8 +51,8 @@ class App extends Component {
                     <Switch>
                         {/* <Route path="/" component={StudentListM}/> */}
                         <Route path="/" component={Teacher}/>
-                    </Switch>
-                );
+                    </Switch>);
+                Sidebar = <SidebarTeacher/>
             }
 
             routes=(
@@ -64,7 +64,7 @@ class App extends Component {
                     </Row>
                     <Row>
                         <Col xs={1}>
-                            <SidebarUI/>
+                            {Sidebar}
                         </Col>
                         <Col xs={11}>
                             {Switches}
