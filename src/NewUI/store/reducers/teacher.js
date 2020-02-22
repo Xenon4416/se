@@ -6,6 +6,7 @@ const initialState = {
     activeComponent: 'mainPage',
     activeClass: null,
     activeSem: null,
+    activeClassStudentValuesIndex: null,
     classes: [], /*[{batch: 'dfsd', subCode:'adaf', subName:'asdas', group:"dfsd"}]*/
     classStudentValues: []
 };
@@ -29,8 +30,37 @@ const setClassStudentValues = (state, action) => {
     }
 };
 
+const updateClassStudentValues = (state, action) => {
+    let i;
+    let tempClass = [...state.classStudentValues];
+    /*for (i=0;i<state.classStudentValues.length; i++){
+        if ((state.classStudentValues[i].classId === state.activeClass) && (state.classStudentValues[i].sem === state.activeSem)){
+            let tempClassStudent = [...tempClass[i].data];
+            if (action.Type === 'asmnt'){
+                tempClassStudent[action.index].test = action.value;
+            } else if(action.Type === 'pract'){
+                tempClassStudent[action.index].practical = action.value;
+            }
+            tempClass[i] = {classId: state.activeClass, sem: state.activeSem, data: tempClassStudent};
+            break;
+        }
+    }*/
+    let tempClassStudent = [...tempClass[state.activeClassStudentValuesIndex].data];
+    if (action.Type === 'asmnt'){
+        tempClassStudent[action.index].test = action.value;
+    } else if(action.Type === 'pract'){
+        tempClassStudent[action.index].practical = action.value;
+    }
+    tempClass[state.activeClassStudentValuesIndex] = {classId: state.activeClass, sem: state.activeSem, data: tempClassStudent};
+    return updateObject(state, {classStudentValues: tempClass})
+};
+
 const resetStates = (state, action) => {
     return updateObject(state, {activeComponent: 'mainPage', activeClass: null, classes: [], classStudentValues: []})
+};
+
+const setActiveClassStudentIndex = (state, action) => {
+    return updateObject(state, {activeClassStudentValuesIndex: action.value})
 };
 
 const reducer = (state = initialState, action) => {
@@ -40,7 +70,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SET_TEACHER_CLASSES: return setTeacherClasses(state, action);
         case actionTypes.RESET_DEFAULTS_TEACHER: return resetStates(state, action);
         case actionTypes.SET_CLASS_STUDENT_VALUES: return setClassStudentValues(state, action);
-        
+        case actionTypes.UPDATE_CLASS_STUDENT_VALUES: return updateClassStudentValues(state, action);
+        case actionTypes.SET_ACTIVE_CLASS_STUDENT_VALUE_INDEX: return setActiveClassStudentIndex(state, action);
         default:
             return state;
     }

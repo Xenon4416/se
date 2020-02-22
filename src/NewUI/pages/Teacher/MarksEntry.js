@@ -10,11 +10,18 @@ import * as actions from "../../store/actions/teacher";
 import connect from "react-redux/es/connect/connect";
 
 class MarksEntry extends React.Component {
+    onMarksChangeHandler(event, type, index){
+        console.log(this.props.activeSem);
+        if (parseInt(event.target.value)>=0 && parseInt(event.target.value) <= 20){
+            this.props.updateClassStudentValues(parseInt(event.target.value), type, index);
+        }
+        console.log("on marks update", this.props.activeSem, this.props.classStudentValues)
+    }
     render() {
-        let recordDatas = this.props.classStudentValues.find((cls) => (this.props.activeClass === cls.classId) && (this.props.activeSem === cls.sem));
+        let recordDatas = this.props.classStudentValues[this.props.classIndex];
         return(
                <div className="myCardStyle">
-                    <Form className="myForm">
+                    <Form className="myForm">;
 
                         <Row>
                             <Col className="text-center">
@@ -23,7 +30,7 @@ class MarksEntry extends React.Component {
                             </Col>
                         </Row>
                     </Form>
-                    
+
                     <Table className="myTable"  >
                         <thead>
                         <tr className="text-white">
@@ -42,8 +49,8 @@ class MarksEntry extends React.Component {
                                     <td className="text-center">{index+1}</td>
                                     <td>{data.username}</td>
                                     <td>Full Name</td>
-                                    <td><Input/></td>
-                                    <td><Input>Enter Marks</Input></td>
+                                    <td><Input type='number' onChange={(event) => this.onMarksChangeHandler(event,'asmnt', index)} value={data.test}/></td>
+                                    <td><Input type='number' onChange={(event) => this.onMarksChangeHandler(event,'pract', index)} value={data.practical}/></td>
                                     <td>Excellent</td>
                                 </tr>
                             })
@@ -51,7 +58,7 @@ class MarksEntry extends React.Component {
                         </tbody>
                         <tr>
                                 <td colSpan="5" className="text-right">Action</td>
-                        <td><Button outline className="text-white" color="success">Submit</Button></td>
+                        <td><Button onClick={} outline className="text-white" color="success">Submit</Button></td>
                         </tr>
 
                     </Table>
@@ -64,6 +71,7 @@ const mapStateToProps = state => {
     return {
         classes: state.teacher.classes,
         classStudentValues: state.teacher.classStudentValues,
+        classIndex: state.teacher.activeClassStudentValuesIndex,
         activeClass: state.teacher.activeClass,
         activeSem: state.teacher.activeSem
     }
@@ -71,7 +79,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setClassStudentValues: (values) => dispatch(actions.setClassStudentValues(values))
+        setClassStudentValues: (values) => dispatch(actions.setClassStudentValues(values)),
+        updateClassStudentValues: (value, type, index) => dispatch(actions.updateClassStudentValues(value, type, index))
     }
 };
 

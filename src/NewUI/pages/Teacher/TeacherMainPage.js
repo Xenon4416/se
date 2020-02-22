@@ -153,7 +153,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        selectCard: (data) => dispatch(actions.setActiveClass(data)),
+        selectCard: (data, sem) => dispatch(actions.setActiveClass(data, sem)),
         selectActiveComponent: (comp) => dispatch(actions.setActiveComponent(comp))
     }
 };
