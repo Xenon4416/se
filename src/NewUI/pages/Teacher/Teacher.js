@@ -6,7 +6,7 @@ import Row from "reactstrap/es/Row";
 //import {StudentList} from "./StudentList";
 import {Navbars} from "../../components/NavBar/Navbars";
 import { connect } from 'react-redux';
-import {MarksEntry} from "./MarksEntry";
+import MarksEntry from "./MarksEntry";
 import StudentList from "./StudentList";
 // import {TeacherV} from "./TeacherV";
 import TeacherMainPage from "./TeacherMainPage";

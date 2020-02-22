@@ -14,7 +14,7 @@ class StudentList extends React.Component {
         console.log("In Teacher",this.props); // TODO: change the url to uris.js
         let i;
         for(i=0;i<this.props.classStudentValues.length;i++){
-            if (this.props.classStudentValues[i].Class === this.props.activeClass){
+            if ((this.props.classStudentValues[i].classId === this.props.activeClass) && (this.props.classStudentValues[i].sem === this.props.activeSem)){
                 break;
             }
         }
@@ -29,18 +29,28 @@ class StudentList extends React.Component {
                 }})
                 .then(res => res.json())
                 .then(res => {
-                    this.props.setClassStudentValues({Class:this.props.activeClass, data: res.data});
-                    this.setState({studentRecords: {Class:this.props.activeClass, data: res.data}});
-                    console.log("second then", this.state.studentRecords);
+                    this.props.setClassStudentValues({classId:this.props.activeClass, sem: this.props.activeSem, data: res.data});
                 })
                 .catch(err => console.log(err));
 
         }
     }
     render() {
-        let recordDatas = this.props.classStudentValues.find((cls) => this.props.activeClass === cls.Class);
+        let recordDatas = this.props.classStudentValues.find((cls) => (this.props.activeClass === cls.classId) && (this.props.activeSem === cls.sem));
+        // if(this.state.studentRecords.length){
+        //     recordDatas=this.state.studentRecords.map((record,index)=>(
+        //         <tr>
+        //             <td>{index+1}</td>
+        //             <td>{record.username}</td>
+        //             <td>20</td>
+        //             <td>8</td>
+        //             <td>{record.test}</td>
+        //             <td>Excellent</td>
+        //          </tr>
+        //     ))
+        // }
         return(
-            
+
             <Card className="myCardStyle">
 
                     <div className="studentClassTitle">
@@ -90,7 +100,8 @@ const mapStateToProps = state => {
     return {
         classes: state.teacher.classes,
         classStudentValues: state.teacher.classStudentValues,
-        activeClass: state.teacher.activeClass
+        activeClass: state.teacher.activeClass,
+        activeSem: state.teacher.activeSem
     }
 };
 

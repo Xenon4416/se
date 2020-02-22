@@ -7,10 +7,11 @@ export const setActiveComponent = (comp) => {
     }
 };
 
-export const setActiveClass = (comp) => {
+export const setActiveClass = (Class, sem) => {
     return {
         type: actionTypes.SET_TEACHER_ACTIVE_CLASS,
-        value: comp
+        Class: Class,
+        sem: sem
     }
 };
 

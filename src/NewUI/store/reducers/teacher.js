@@ -5,6 +5,7 @@ const initialState = {
     loading: false,
     activeComponent: 'mainPage',
     activeClass: null,
+    activeSem: null,
     classes: [], /*[{batch: 'dfsd', subCode:'adaf', subName:'asdas', group:"dfsd"}]*/
     classStudentValues: []
 };
@@ -14,7 +15,7 @@ const setActiveComponent = (state, action) => {
 };
 
 const setActiveClass = (state, action) => {
-    return updateObject(state, {activeClass: action.value});
+    return updateObject(state, {activeClass: action.Class, activeSem: action.sem});
 };
 
 const setTeacherClasses = (state, action) => {

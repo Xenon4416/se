@@ -6,9 +6,12 @@ import Form from "reactstrap/es/Form";
 import {Col, Row} from 'reactstrap';
 import './MarksEntry.css'
 import tu from "../../assests/tu logo official.png"
+import * as actions from "../../store/actions/teacher";
+import connect from "react-redux/es/connect/connect";
 
-export class MarksEntry extends React.Component {
+class MarksEntry extends React.Component {
     render() {
+        let recordDatas = this.props.classStudentValues.find((cls) => (this.props.activeClass === cls.classId) && (this.props.activeSem === cls.sem));
         return(
                <div className="myCardStyle">
                     <Form className="myForm">
@@ -27,114 +30,24 @@ export class MarksEntry extends React.Component {
                             <th>S.N</th>
                             <th>Roll No</th>
                             <th>Full Name</th>
-                            <th>Full Marks</th>
-                            <th>Pass Marks</th>
-                            <th>Marks Obtained</th>
-                            <th>Total</th>
+                            <th>Assessment Marks</th>
+                            <th>Practical Marks</th>
                             <th>Remarks</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr className="text-white">
-                            <td className="text-center">1</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">2</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">3</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">4</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">5</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">6</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">7</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">8</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">9</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr className="text-white">
-                            <td className="text-center">10</td>
-                            <td>PUL074BCT005</td>
-                            <td>Anjil Bishowkarma</td>
-                            <td>100</td>
-                            <td>80</td>
-                            <td><Input className="myInput">Enter Marks</Input></td>
-                            <td>75</td>
-                            <td>Excellent</td>
-                        </tr>
+                        {
+                            recordDatas.data.map((data,index) => {
+                                return <tr className="text-white" key={index}>
+                                    <td className="text-center">{index+1}</td>
+                                    <td>{data.username}</td>
+                                    <td>Full Name</td>
+                                    <td><Input/></td>
+                                    <td><Input>Enter Marks</Input></td>
+                                    <td>Excellent</td>
+                                </tr>
+                            })
+                        }
                         </tbody>
                         <tr>
                                 <td colSpan="5" className="text-right">Action</td>
@@ -146,3 +59,20 @@ export class MarksEntry extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        classes: state.teacher.classes,
+        classStudentValues: state.teacher.classStudentValues,
+        activeClass: state.teacher.activeClass,
+        activeSem: state.teacher.activeSem
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setClassStudentValues: (values) => dispatch(actions.setClassStudentValues(values))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MarksEntry);

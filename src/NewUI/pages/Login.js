@@ -38,9 +38,9 @@ class Login extends React.Component{
             <Container>
                 <Row>
                     <Col xs={12} md={8} lg={6}>
-                    <Form className="loginBody loginForm" onSubmit={ (e) => this.submitForm(e) }>
+                    <Form className="loginBody loginForm">
                     <img className="img" src="http://pcampus.edu.np/wp-content/uploads/2019/05/cropped-pcamus-header-image.jpg" alt="dfdsfdf"/>
-                    
+
                     <h2 className="hd2">Internal Marks Management</h2>
                     <FormGroup className="text-white">
 
@@ -67,7 +67,7 @@ class Login extends React.Component{
                             type="password"
                             id="password"
                             placeholder="Enter the Password"
-                            
+
                             //value={ password }
                             // onChange={ (e) => this.handleChange(e) }
                         />
