@@ -63,6 +63,10 @@ const setActiveClassStudentIndex = (state, action) => {
     return updateObject(state, {activeClassStudentValuesIndex: action.value})
 };
 
+// const submitMarks = (state, action) => {
+//
+// };
+
 const reducer = (state = initialState, action) => {
     switch ( action.type ) {
         case actionTypes.SET_TEACHER_ACTIVE_COMPONENT: return setActiveComponent(state, action);
