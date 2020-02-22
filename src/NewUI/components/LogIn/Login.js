@@ -1,17 +1,21 @@
 import React from 'react';
 import "./Login.css";
 import {
-    Form, FormGroup, Label, Input, Button,
+    Form, FormGroup,Row,  Col, Label, Input, Button,
 } from 'reactstrap';
+import LOGO from '../../assests/tu logo official.png';
 
-export class Login extends React.Component{
+export class LoginForm extends React.Component{
     render()
     {
         return(
-                <Form className="body" onSubmit={ (e) => this.submitForm(e) }>
-                    <img className="img" src="http://pcampus.edu.np/wp-content/uploads/2019/05/cropped-pcamus-header-image.jpg" alt="dfdsfdf"/>
-                    
-                    <h2 className="hd2">Internal Marks Management</h2>
+            <Row>
+                <Col sm={4} ></Col>
+                <Col sm={4}>
+                    <Form className="body" onSubmit={ (e) => this.submitForm(e) }>
+                        <img className="img" src={LOGO}/>
+
+                        <h2 className="hd2">Internal Marks Management</h2>
                         <FormGroup className="text-white">
 
                             <Label>Username</Label>
@@ -23,10 +27,10 @@ export class Login extends React.Component{
                                 //value={ email }
                                 //valid={ this.state.validate.emailState === 'has-success' }
                                 //invalid={ this.state.validate.emailState === 'has-danger' }
-                               // onChange={ (e) => {
-                                  //  this.validateEmail(e)
-                                 //   this.handleChange(e)
-                               // } }
+                                // onChange={ (e) => {
+                                //  this.validateEmail(e)
+                                //   this.handleChange(e)
+                                // } }
                             />
 
                         </FormGroup>
@@ -44,8 +48,12 @@ export class Login extends React.Component{
                             />
                         </FormGroup>
 
-                    <Button className="text-white">Submit</Button>
-                </Form>
+                        <Button className="text-white">Submit</Button>
+                    </Form>
+
+                </Col>
+            </Row>
+
 
         );
     }
