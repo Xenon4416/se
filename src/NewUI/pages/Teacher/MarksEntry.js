@@ -17,6 +17,16 @@ class MarksEntry extends React.Component {
         }
         console.log("on marks update", this.props.activeSem, this.props.classStudentValues)
     }
+
+    onMarksSubmitHandler(event){
+        event.preventDefault();
+        let tempData = {...this.props.classStudentValues[this.props.classIndex]};
+        tempData.sem = (parseInt(this.props.activeSem[0])-1)*2+parseInt(this.props.activeSem[2]);
+        let temo = {classId:tempData.classId, sem:tempData.sem, datas: tempData.data}
+        this.props.submitMarks(temo);
+        console.log(tempData)
+    }
+
     render() {
         let recordDatas = this.props.classStudentValues[this.props.classIndex];
         return(
@@ -55,11 +65,11 @@ class MarksEntry extends React.Component {
                                 </tr>
                             })
                         }
-                        </tbody>
                         <tr>
                                 <td colSpan="5" className="text-right">Action</td>
-                        <td><Button onClick={} outline className="text-white" color="success">Submit</Button></td>
+                        <td><Button onClick={(event) => this.onMarksSubmitHandler(event)} outline className="text-white" color="success">Submit</Button></td>
                         </tr>
+                        </tbody>
 
                     </Table>
                </div>
@@ -80,7 +90,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         setClassStudentValues: (values) => dispatch(actions.setClassStudentValues(values)),
-        updateClassStudentValues: (value, type, index) => dispatch(actions.updateClassStudentValues(value, type, index))
+        updateClassStudentValues: (value, type, index) => dispatch(actions.updateClassStudentValues(value, type, index)),
+        submitMarks: (data) => dispatch(actions.submitMarks(data))
     }
 };
 
