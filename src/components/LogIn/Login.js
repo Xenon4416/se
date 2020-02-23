@@ -8,7 +8,7 @@ export class Login extends React.Component{
     render()
     {
         return(
-                <Form className="body" onSubmit={ (e) => this.submitForm(e) }>
+                <Form  onSubmit={ (e) => this.submitForm(e) }>
                     <img className="img" src="http://pcampus.edu.np/wp-content/uploads/2019/05/cropped-pcamus-header-image.jpg" alt="dfdsfdf"/>
                     
                     <h2 className="hd2">Internal Marks Management</h2>

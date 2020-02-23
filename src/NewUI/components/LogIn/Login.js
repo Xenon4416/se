@@ -9,11 +9,11 @@ export class LoginForm extends React.Component{
     render()
     {
         return(
-            <Row>
-                <Col sm={4} ></Col>
-                <Col sm={4}>
+            <Container>
+                <Row>
+                <Col xs={10} sm={8} md={6} lg={4}>
                     <Form className="body" onSubmit={ (e) => this.submitForm(e) }>
-                        <img className="img" src={LOGO}/>
+                        <img className="img" alt="logo" src={LOGO}/>
 
                         <h2 className="hd2">Internal Marks Management</h2>
                         <FormGroup className="text-white">
@@ -53,6 +53,7 @@ export class LoginForm extends React.Component{
 
                 </Col>
             </Row>
+            </Container>
 
 
         );
