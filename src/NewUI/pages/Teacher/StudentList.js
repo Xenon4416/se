@@ -23,7 +23,7 @@ class StudentList extends React.Component {
         if (i === this.props.classStudentValues.length){
             // let dat = this.props.classes.find((cls) => this.props.activeClass === cls.batch+cls.subCode+cls.group);
             let sem = ((parseInt(this.props.activeSem[0])-1)*2+parseInt(this.props.activeSem[2])).toString();
-            fetch(uris.FETCH_CLASS_STUDENT_lIST+'073BCESH603CD'+'&sem='+sem, {
+            fetch(uris.FETCH_CLASS_STUDENT_lIST+'073BCESH603CD', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
