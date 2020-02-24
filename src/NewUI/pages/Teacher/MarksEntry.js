@@ -15,7 +15,6 @@ class MarksEntry extends React.Component {
         if (!theNumber)
         {
             this.props.updateClassStudentValues(0,type,index);
-            console.log("yah xu")
         }
         else {
             console.log("ndfsd",theNumber, fm, type);
