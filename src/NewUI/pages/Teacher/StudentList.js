@@ -30,7 +30,7 @@ class StudentList extends React.Component {
                 }})
                 .then(res => res.json())
                 .then(res => {
-                    this.props.setClassStudentValues({classId:this.props.activeClass, sem: this.props.activeSem, data: res.data});
+                    this.props.setClassStudentValues({classId:this.props.activeClass, sem: this.props.activeSem, data: res.data, fm: res.fm});
                     this.props.setActiveClassIndex(this.props.classStudentValues.length-1);
                 })
                 .catch(err => console.log(err));

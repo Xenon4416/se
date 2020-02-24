@@ -51,7 +51,7 @@ const updateClassStudentValues = (state, action) => {
     } else if(action.Type === 'pract'){
         tempClassStudent[action.index].practical = action.value;
     }
-    tempClass[state.activeClassStudentValuesIndex] = {classId: state.activeClass, sem: state.activeSem, data: tempClassStudent};
+    tempClass[state.activeClassStudentValuesIndex] = {classId: state.activeClass, sem: state.activeSem, data: tempClassStudent, fm: tempClass[state.activeClassStudentValuesIndex].fm};
     return updateObject(state, {classStudentValues: tempClass})
 };
 

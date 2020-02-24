@@ -10,20 +10,35 @@ import * as actions from "../../store/actions/teacher";
 import connect from "react-redux/es/connect/connect";
 
 class MarksEntry extends React.Component {
-    onMarksChangeHandler(event, type, index){
-        console.log(this.props.activeSem);
-        if (parseInt(event.target.value)>=0 && parseInt(event.target.value) <= 20){
-            this.props.updateClassStudentValues(parseInt(event.target.value), type, index);
+    onMarksChangeHandler(event, type, index, fm){
+        let theNumber=event.target.value*1;
+        if (!theNumber)
+        {
+            this.props.updateClassStudentValues(0,type,index);
+            console.log("yah xu")
         }
-        console.log("on marks update", this.props.activeSem, this.props.classStudentValues)
+        else {
+            console.log("ndfsd",theNumber, fm, type);
+            if (type === 'asmnt'){
+                if (theNumber >= 0 && theNumber <= fm.asmnt){
+                    document.getElementById('i1').value = '';
+                    this.props.updateClassStudentValues(theNumber, type, index);
+                }
+            }else if(type === 'pract'){
+                if (theNumber >= 0 && theNumber <= fm.pract){
+                    document.getElementById('i2').value = '';
+                    this.props.updateClassStudentValues(theNumber, type, index);
+                }
+            }
+        }
     }
 
     onMarksSubmitHandler(event){
         event.preventDefault();
         let tempData = {...this.props.classStudentValues[this.props.classIndex]};
         tempData.sem = (parseInt(this.props.activeSem[0])-1)*2+parseInt(this.props.activeSem[2]);
-        let temo = {classId:tempData.classId, sem:tempData.sem, datas: tempData.data}
-        this.props.submitMarks(temo);
+        let temo = {classId:tempData.classId, sem:tempData.sem, datas: tempData.data};
+        this.props.submitMarks(tempData);
         console.log(tempData)
     }
 
@@ -59,8 +74,8 @@ class MarksEntry extends React.Component {
                                     <td className="text-center">{index+1}</td>
                                     <td>{data.username}</td>
                                     <td>Full Name</td>
-                                    <td><Input type='number' onChange={(event) => this.onMarksChangeHandler(event,'asmnt', index)} value={data.test}/></td>
-                                    <td><Input type='number' onChange={(event) => this.onMarksChangeHandler(event,'pract', index)} value={data.practical}/></td>
+                                    <td><Input type='number' id='i1' onChange={(event) => this.onMarksChangeHandler(event,'asmnt', index, recordDatas.fm)} value={data.test}/></td>
+                                    <td><Input type='number' id='i2' onChange={(event) => this.onMarksChangeHandler(event,'pract', index, recordDatas.fm)} value={data.practical}/></td>
                                     <td>Excellent</td>
                                 </tr>
                             })
