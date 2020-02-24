@@ -6,15 +6,16 @@ import Row from "reactstrap/es/Row";
 //import {StudentList} from "./StudentList";
 import {Navbars} from "../../components/NavBar/Navbars";
 import { connect } from 'react-redux';
-import StudentList from "./StudentList";
+import StudentList from "./MarksDisplay";
 // import {TeacherV} from "./TeacherV";
-import TeacherMainPage from "./StudentMainPage";
+import StudentMainPage from "./StudentMainPage";
+//import MarksDisplay from "./MarksDisplay"
 import * as uris from '../../store/uris';
 import * as actions from "../../store/actions/student";
 // import {AdminV} from "../../../Pages/AdminDashBoard/AdminV";
-class Teacher extends Component {
+class Student extends Component {
     componentDidMount(){
-        fetch(uris.FETCH_CLASSLIST+this.props.username, {
+        fetch(uris.STUDENT_MARKS+this.props.username+"?fields=s1,s2,s3,s4,s5,s6,s7,s8", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,7 +23,9 @@ class Teacher extends Component {
             }
         })
             .then(res => res.json())
-            .then(res => this.props.setStudentMarks(res.data))
+            .then(res => {
+                console.log("Here data:",res.data);
+                this.props.onFetched(res.data)})
             .catch(err => console.log("Student err", err))
     }
 
@@ -32,9 +35,9 @@ class Teacher extends Component {
             case 'mainPage':
                 renderComp = <StudentMainPage/>;
                 break;
-            case 'marksDisplay':
-                renderComp = <MarksDisplay/>;
-                break;
+            // case 'marksDisplay':
+            //     renderComp = <MarksDisplay/>;
+            //     break;
             default:
                 break;
         }
@@ -63,4 +66,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Teacher);
+export default connect(mapStateToProps, mapDispatchToProps)(Student);

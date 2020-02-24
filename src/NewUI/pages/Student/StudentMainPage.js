@@ -3,12 +3,12 @@ import CardTitle from "reactstrap/es/CardTitle";
 import Card from "reactstrap/es/Card";
 import CardBody from "reactstrap/es/CardBody";
 import CardText from "reactstrap/es/CardText";
-import "./TeacherMainPage.css";
+//import "./TeacherMainPage.css";
 import * as actions from "../../store/actions/teacher";
 import {Row, Col, Button} from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 
-class TeacherMainPage extends React.Component{
+class StudentMainPage extends React.Component{
     onCardSelectHandler(data){
         this.props.selectCard(data.batch+data.subCode+data.group, data.sem);
         this.props.selectActiveComponent('studentList');
@@ -29,7 +29,7 @@ class TeacherMainPage extends React.Component{
         };*/
         let semesters=[1,2,3,4,5,6,7,8];
         return(
-            <Row xs="2" className="styles">
+            <Row  className="styles">
                 {this.props.classes.semesters((data, index) => {
                     return <Col sm={3}  md={4} lg={3} xl={3} key={index}>
                         <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
@@ -56,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeacherMainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentMainPage);

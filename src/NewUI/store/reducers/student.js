@@ -12,7 +12,9 @@ const reducer=(state=initialState,action)=>{
         case actionTypes.SET_STUDENT_CURRENT_SEM:
             return{...state,...action.values}
         case actionTypes.SET_STUDENT_MARKS:
-            return{...state,...action.values}
+            console.log("Reached here");
+            console.log("Reducer",action.value)
+            return{...state,marks:action.value}
         default:return state;
     }
 }

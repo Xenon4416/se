@@ -10,6 +10,7 @@ export const setCurrentSem=(sem)=>{
 }
 
 export const setStudentMarks=(marks)=>{
+    console.log("in action",marks);
     return {
         type:actionTypes.SET_STUDENT_MARKS,
         value:marks
