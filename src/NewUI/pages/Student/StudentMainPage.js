@@ -27,16 +27,13 @@ class TeacherMainPage extends React.Component{
                 </Col>
             )
         };*/
+        let semesters=[1,2,3,4,5,6,7,8];
         return(
             <Row xs="2" className="styles">
-
-                {this.props.classes.map((data, index) => {
-                    return <Col sm={3}  md={4} key={index}>
+                {this.props.classes.semesters((data, index) => {
+                    return <Col sm={3}  md={4} lg={3} xl={3} key={index}>
                         <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
-                            <CardText>Batch: {data.batch}</CardText>
-                            <CardText>Subject Code: {data.subCode}</CardText>
-                            <CardText>Subject: {data.subName}</CardText>
-                            <CardText>Group: {data.group}</CardText>
+                            <CardText>Semester: data</CardText>
                         </Card>
                     </Col>
                 })}
