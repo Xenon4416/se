@@ -13,7 +13,6 @@ import * as actions from "../../store/actions/student";
 class MarksDisplay extends React.Component {
     componentDidMount(){
         
-       
     }
     
     render() {
