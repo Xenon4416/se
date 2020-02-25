@@ -9,7 +9,7 @@ import {TeacherDetails} from "./TeacherDetails";
 import {AddNew} from "./AddNew";
 
 
-export class Admin extends React.Component{
+class Admin extends React.Component{
     render(){
         return(
                         <Container style={{  marginLeft:'150px', marginTop:'-60px', width:'1300px'}}>
@@ -142,3 +142,5 @@ export class Admin extends React.Component{
         );
     }
 }
+
+export default Admin;

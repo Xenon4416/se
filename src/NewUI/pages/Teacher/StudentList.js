@@ -39,6 +39,7 @@ class StudentList extends React.Component {
     render() {
         // let recordDatas = this.props.classStudentValues.find((cls) => (this.props.activeClass === cls.classId) && (this.props.activeSem === cls.sem));
         let recordDatas = this.props.classStudentValues[this.props.classIndex];
+        console.log(recordDatas)
         // if(this.state.studentRecords.length){
         //     recordDatas=this.state.studentRecords.map((record,index)=>(
         //         <tr>

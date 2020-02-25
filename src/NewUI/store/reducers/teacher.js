@@ -73,9 +73,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SET_TEACHER_ACTIVE_CLASS: return setActiveClass(state, action);
         case actionTypes.SET_TEACHER_CLASSES: return setTeacherClasses(state, action);
         case actionTypes.RESET_DEFAULTS_TEACHER: return resetStates(state, action);
-        case actionTypes.SET_CLASS_STUDENT_VALUES: return setClassStudentValues(state, action);
-        case actionTypes.UPDATE_CLASS_STUDENT_VALUES: return updateClassStudentValues(state, action);
-        case actionTypes.SET_ACTIVE_CLASS_STUDENT_VALUE_INDEX: return setActiveClassStudentIndex(state, action);
+        case actionTypes.SET_TEACHER_CLASS_STUDENT_VALUES: return setClassStudentValues(state, action);
+        case actionTypes.UPDATE_TEACHER_CLASS_STUDENT_VALUES: return updateClassStudentValues(state, action);
+        case actionTypes.SET_TEACHER_ACTIVE_CLASS_STUDENT_VALUE_INDEX: return setActiveClassStudentIndex(state, action);
         default:
             return state;
     }
