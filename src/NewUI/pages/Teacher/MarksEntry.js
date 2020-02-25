@@ -10,6 +10,7 @@ import * as actions from "../../store/actions/teacher";
 import connect from "react-redux/es/connect/connect";
 
 class MarksEntry extends React.Component {
+    
     onMarksChangeHandler(event, type, index, fm){
         let theNumber=event.target.value*1;
         if (!theNumber)

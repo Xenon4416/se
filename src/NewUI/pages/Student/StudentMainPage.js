@@ -3,15 +3,15 @@ import CardTitle from "reactstrap/es/CardTitle";
 import Card from "reactstrap/es/Card";
 import CardBody from "reactstrap/es/CardBody";
 import CardText from "reactstrap/es/CardText";
-import "./TeacherMainPage.css";
-import * as actions from "../../store/actions/teacher";
+import "./StudentMainPage.css";
+import * as actions from "../../store/actions/student";
 import {Row, Col, Button} from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 
-class TeacherMainPage extends React.Component{
+class StudentMainPage extends React.Component{
     onCardSelectHandler(data){
-        this.props.selectCard(data.batch+data.subCode+data.group, data.sem);
-        this.props.selectActiveComponent('studentList');
+        // this.props.selectCard(data.batch+data.subCode+data.group, data.sem);
+        // this.props.selectActiveComponent('studentList');
     }
 
     render() {
@@ -27,15 +27,15 @@ class TeacherMainPage extends React.Component{
                 </Col>
             )
         };*/
+        let semesters=[1,2,3,4,5,6,7,8];
         return(
-            <Row className="styles">
-                {this.props.classes.map((data, index) => {
-                    return <Col  xs={8} sm={8} md={4} lg={3} key={index}>
-                        <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
-                            <CardText>Batch: {data.batch}</CardText>
-                            <CardText>Subject Code: {data.subCode}</CardText>
-                            <CardText>Subject: {data.subName}</CardText>
-                            <CardText>Group: {data.group}</CardText>
+            <Row  className="styles">
+                {semesters.map((data, index) => {
+                    return <Col xs={8}sm={7}  md={4} lg={3} xl={3} key={index}>
+                        <Card body inverse color="dark myCardS" onClick={() => {
+                            this.props.setCurrentSem('s3');
+                            this.props.setActivePage('marksDisplay')}} >
+                            <CardText>Semester: {data}</CardText>
                         </Card>
                     </Col>
                 })}
@@ -47,15 +47,17 @@ class TeacherMainPage extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        classes: state.teacher.classes
+        username:state.auth.username,
+        marks:state.student.marks,
+        activeComponent:state.student.activeComponent
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        selectCard: (data, sem) => dispatch(actions.setActiveClass(data, sem)),
-        selectActiveComponent: (comp) => dispatch(actions.setActiveComponent(comp))
+        setCurrentSem:(sem)=>dispatch(actions.setCurrentSem(sem)),
+        setActivePage:(page)=>dispatch(actions.setActivePage(page))
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeacherMainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentMainPage);

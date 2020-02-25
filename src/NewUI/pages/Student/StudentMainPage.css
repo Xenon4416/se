@@ -1,0 +1,25 @@
+.myCardS {
+    margin-top: 4vh;
+    margin-left:4vh;
+    padding:2vh 2vh ;
+    background-color: #272a3d;
+    color:#272a3d;
+    border-color: #272a3d;
+    box-shadow:2px 2px 10px 0.01px #121212;
+}
+.bg {
+    background-color: #272a3d;
+}
+
+.buttonS {
+    margin-left: 29vh;
+}
+
+.styles {
+    overflow: scroll;
+    height: 86vh;
+}
+
+.myCards:hover{
+    cursor:pointer;
+}

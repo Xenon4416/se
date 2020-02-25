@@ -7,9 +7,10 @@ import LogIn from '../src/NewUI/pages/Login';
 import Admin from '../src/NewUI/pages/Admin/AdminV.js';
 import Navbars from './NewUI/components/NavBar/Navbars'
 //import {NavBars} from './NewUI/components/NavBar/Navbars.js'
-import {StudentList} from './NewUI/pages/Teacher/StudentList';
+import {StudentList} from './NewUI/pages/Student/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
 import Teacher from './NewUI/pages/Teacher/Teacher';
+import Student from './NewUI/pages/Student/Student';
 //import Student from './pages/Student';
 import SidebarTeacher from "./NewUI/components/Slidebar/SidebarTeacher";
 import SidebarAdmin from "./NewUI/components/Slidebar/SidebarAdmin";
@@ -52,6 +53,14 @@ class App extends Component {
                     <Switch>
                         {/* <Route path="/" component={StudentListM}/> */}
                         <Route path="/" component={Teacher}/>
+                    </Switch>);
+                Sidebar = <SidebarTeacher/>
+            }
+            else if(this.props.isAuthenticated && this.props.role==="student"){
+                Switches = (
+                    <Switch>
+                        {/* <Route path="/" component={StudentListM}/> */}
+                        <Route path="/" component={Student}/>
                     </Switch>);
                 Sidebar = <SidebarTeacher/>
             }

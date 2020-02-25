@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import authReducer from './NewUI/store/reducers/auth.js';
-import teacherReducer from './NewUI/store/reducers/teacher.js';
-import adminReducer from './NewUI/store/reducers/admin';
+import teacherReducer from './NewUI/store/reducers/teacher.js'
+import studentReducer from './NewUI/store/reducers/student.js';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -16,7 +16,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
     auth: authReducer,
     teacher: teacherReducer,
-    admin: adminReducer
+    student:studentReducer
 });
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
