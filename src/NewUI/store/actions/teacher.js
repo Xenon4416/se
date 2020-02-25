@@ -18,21 +18,21 @@ export const setActiveClass = (Class, sem) => {
 
 export const setActiveClassIndex = (value) => {
     return {
-        type: actionTypes.SET_ACTIVE_CLASS_STUDENT_VALUE_INDEX,
+        type: actionTypes.SET_TEACHER_ACTIVE_CLASS_STUDENT_VALUE_INDEX,
         value: value
     }
 };
 
 export const setClassStudentValues = (value) => {
     return {
-        type: actionTypes.SET_CLASS_STUDENT_VALUES,
+        type: actionTypes.SET_TEACHER_CLASS_STUDENT_VALUES,
         value: value
     }
 };
 
 export const updateClassStudentValues = (value, Type, index) => {
     return {
-        type: actionTypes.UPDATE_CLASS_STUDENT_VALUES,
+        type: actionTypes.UPDATE_TEACHER_CLASS_STUDENT_VALUES,
         value: value,
         Type: Type,
         index: index
