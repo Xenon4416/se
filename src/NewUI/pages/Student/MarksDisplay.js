@@ -37,20 +37,20 @@ class MarksDisplay extends React.Component {
                             <thead className="studentTableHead">
                             <tr>
                                 <th>S.N</th>
-                                <th>Roll No</th>
-                                <th>Full Name</th>
+                                <th>Subject</th>
                                 <th>Assessment Marks</th>
                                 <th>Practical Marks</th>
                             </tr>
                             </thead>
                             <tbody className="scroll">
-                            {recordDatas ?
-                                recordDatas.data.map((data, index) => {
+                            {this.props.marks ?
+                                this.props.marks[this.props.activeSem].map((data, index) => {
                                     return (
                                         <tr key={index}>
                                             <td>{index+1}</td>
-                                            <td>{data}</td>
-                                           
+                                            <td>{data.code}</td>
+                                            <td>{data.m1}</td>
+                                            <td>{data.m2}</td>                                           
                                         </tr>
                                     )
                                 }) : null}

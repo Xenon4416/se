@@ -3,15 +3,15 @@ import CardTitle from "reactstrap/es/CardTitle";
 import Card from "reactstrap/es/Card";
 import CardBody from "reactstrap/es/CardBody";
 import CardText from "reactstrap/es/CardText";
-//import "./TeacherMainPage.css";
-import * as actions from "../../store/actions/teacher";
+import "./StudentMainPage.css";
+import * as actions from "../../store/actions/student";
 import {Row, Col, Button} from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 
 class StudentMainPage extends React.Component{
     onCardSelectHandler(data){
-        this.props.selectCard(data.batch+data.subCode+data.group, data.sem);
-        this.props.selectActiveComponent('studentList');
+        // this.props.selectCard(data.batch+data.subCode+data.group, data.sem);
+        // this.props.selectActiveComponent('studentList');
     }
 
     render() {
@@ -30,10 +30,12 @@ class StudentMainPage extends React.Component{
         let semesters=[1,2,3,4,5,6,7,8];
         return(
             <Row  className="styles">
-                {this.props.classes.semesters((data, index) => {
-                    return <Col sm={3}  md={4} lg={3} xl={3} key={index}>
-                        <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
-                            <CardText>Semester: data</CardText>
+                {semesters.map((data, index) => {
+                    return <Col xs={8}sm={7}  md={4} lg={3} xl={3} key={index}>
+                        <Card body inverse color="dark myCardS" onClick={() => {
+                            this.props.setCurrentSem('s3');
+                            this.props.setActivePage('marksDisplay')}} >
+                            <CardText>Semester: {data}</CardText>
                         </Card>
                     </Col>
                 })}
@@ -45,14 +47,16 @@ class StudentMainPage extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        classes: state.teacher.classes
+        username:state.auth.username,
+        marks:state.student.marks,
+        activeComponent:state.student.activeComponent
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        selectCard: (data, sem) => dispatch(actions.setActiveClass(data, sem)),
-        selectActiveComponent: (comp) => dispatch(actions.setActiveComponent(comp))
+        setCurrentSem:(sem)=>dispatch(actions.setCurrentSem(sem)),
+        setActivePage:(page)=>dispatch(actions.setActivePage(page))
     }
 };
 

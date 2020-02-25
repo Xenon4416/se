@@ -6,7 +6,7 @@ import Row from "reactstrap/es/Row";
 //import {StudentList} from "./StudentList";
 import {Navbars} from "../../components/NavBar/Navbars";
 import { connect } from 'react-redux';
-import StudentList from "./MarksDisplay";
+import MarksDisplay from "./MarksDisplay";
 // import {TeacherV} from "./TeacherV";
 import StudentMainPage from "./StudentMainPage";
 //import MarksDisplay from "./MarksDisplay"
@@ -35,9 +35,9 @@ class Student extends Component {
             case 'mainPage':
                 renderComp = <StudentMainPage/>;
                 break;
-            // case 'marksDisplay':
-            //     renderComp = <MarksDisplay/>;
-            //     break;
+            case 'marksDisplay':
+                renderComp = <MarksDisplay/>;
+                break;
             default:
                 break;
         }
@@ -53,16 +53,21 @@ const mapStateToProps = state => {
     return {
         token: state.auth.token,
         username: state.auth.username,
+        activeComponent:state.student.activeComponent,
         loading:state.student.loading,
         activeSem:state.student.activeSem,
-        marks:state.student.marks
+        marks:state.student.marks,
+        subjects:state.student.subjects
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onSetSem: (sem) => dispatch(actions.setCurrentSem(sem)),
-        onFetched:(marks)=>dispatch(actions.setStudentMarks(marks))
+        onFetched:(marks,subjects)=>{
+            dispatch(actions.setStudentMarks(marks));
+            dispatch(actions.setSubjects(subjects))
+        }
     }
 };
 

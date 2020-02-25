@@ -7,7 +7,7 @@ import LogIn from '../src/NewUI/pages/Login';
 import Admin from '../src/NewUI/pages/Admin';
 import Navbars from './NewUI/components/NavBar/Navbars'
 //import {NavBars} from './NewUI/components/NavBar/Navbars.js'
-import {StudentList} from './NewUI/pages/Teacher/StudentList';
+import {StudentList} from './NewUI/pages/Student/StudentList';
 import {MarksEntry} from './NewUI/pages/Teacher/MarksEntry';
 import Teacher from './NewUI/pages/Teacher/Teacher';
 import Student from './NewUI/pages/Student/Student';
