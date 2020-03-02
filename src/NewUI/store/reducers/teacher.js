@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
-    loading: false,
+    loading: true,
     activeComponent: 'mainPage',
     activeClass: null,
     activeSem: null,
@@ -17,17 +17,18 @@ const setActiveComponent = (state, action) => {
 };
 
 const setActiveClass = (state, action) => {
-    return updateObject(state, {activeClass: action.Class, activeSem: action.sem});
+    return updateObject(state, {activeClass: action.Class, activeSem: action.sem, activeGroup: action.group, loading: true});
 };
 
 const setTeacherClasses = (state, action) => {
-    return updateObject(state, {classes: action.value})
+    return updateObject(state, {classes: action.value, loading: false})
 };
 
 const setClassStudentValues = (state, action) => {
     return {
         ...state,
-        classStudentValues: [...state.classStudentValues, action.value]
+        classStudentValues: [...state.classStudentValues, action.value],
+        loading: false
     }
 };
 
@@ -61,7 +62,7 @@ const resetStates = (state, action) => {
 };
 
 const setActiveClassStudentIndex = (state, action) => {
-    return updateObject(state, {activeClassStudentValuesIndex: action.value})
+    return updateObject(state, {activeClassStudentValuesIndex: action.value, loading: false})
 };
 
 // const submitMarks = (state, action) => {

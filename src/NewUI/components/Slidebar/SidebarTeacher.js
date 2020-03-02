@@ -15,17 +15,17 @@ class SidebarTeacher extends React.Component{
         if (this.props.activeClass){
             conditionRender = (
                 <Fragment>
-                <NavbarBrand className="myNavBrand text-success" onClick={() => this.onComponentShiftHandler('marksEntry')}>
-                    <UncontrolledTooltip placement="right" target="marksentry">
-                        Marks Entry
-                    </UncontrolledTooltip>
-                    <i  className="fa fa-pencil-square-o text-center" id="marksentry" ></i>
-                </NavbarBrand>
                 <NavbarBrand className="myNavBrand text-success" onClick={() => this.onComponentShiftHandler('studentList')}>
                     <UncontrolledTooltip placement="right" target="marksview">
                     Marks View
                     </UncontrolledTooltip>
                     <i  className="fa fa-television text-center" id="marksview"></i>
+                </NavbarBrand>
+                <NavbarBrand className="myNavBrand text-success" onClick={() => this.onComponentShiftHandler('marksEntry')}>
+                    <UncontrolledTooltip placement="right" target="marksentry">
+                        Marks Entry
+                    </UncontrolledTooltip>
+                    <i  className="fa fa-pencil-square-o text-center" id="marksentry" ></i>
                 </NavbarBrand>
                 </Fragment>
             )

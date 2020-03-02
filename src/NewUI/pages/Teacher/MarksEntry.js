@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { Table} from 'reactstrap';
 import Input from "reactstrap/es/Input";
 import Button from "reactstrap/es/Button";
@@ -7,6 +7,7 @@ import {Col, Row} from 'reactstrap';
 import './MarksEntry.css'
 import tu from "../../assests/tu logo official.png"
 import * as actions from "../../store/actions/teacher";
+import Spinner from '../../components/Spinner/Spinner.js';
 import connect from "react-redux/es/connect/connect";
 
 class MarksEntry extends React.Component {
@@ -45,49 +46,52 @@ class MarksEntry extends React.Component {
     render() {
         let recordDatas = this.props.classStudentValues[this.props.classIndex];
         return(
-               <div className="myCardStyle">
-                    <Form className="myForm">;
+               <Fragment>
+                   {this.props.loading ? <Spinner/> :
+                       <div className="myCardStyle">
+                           <Form className="myForm">;
 
-                        <Row>
-                            <Col className="text-center">
-                                <h4 className="text-white">IOE is Greater than TU</h4>
-                                <img width="90vh" height="100vh" src={tu} alt="tulogo"/>
-                            </Col>
-                        </Row>
-                    </Form>
+                               <Row>
+                                   <Col className="text-center">
+                                       <h4 className="text-white">IOE is Greater than TU</h4>
+                                       <img width="90vh" height="100vh" src={tu} alt="tulogo"/>
+                                   </Col>
+                               </Row>
+                           </Form>
 
-                    <Table className="myTable"  >
-                        <thead>
-                        <tr className="text-white">
-                            <th>S.N</th>
-                            <th>Roll No</th>
-                            <th>Full Name</th>
-                            <th>Assessment Marks</th>
-                            <th>Practical Marks</th>
-                            <th>Remarks</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {
-                            recordDatas.data.map((data,index) => {
-                                return <tr className="text-white" key={index}>
-                                    <td className="text-center">{index+1}</td>
-                                    <td>{data.username}</td>
-                                    <td>Full Name</td>
-                                    <td><Input type='number' id='i1' onChange={(event) => this.onMarksChangeHandler(event,'asmnt', index, recordDatas.fm)} value={data.test}/></td>
-                                    <td><Input type='number' id='i2' onChange={(event) => this.onMarksChangeHandler(event,'pract', index, recordDatas.fm)} value={data.practical}/></td>
-                                    <td>Excellent</td>
-                                </tr>
-                            })
-                        }
-                        <tr>
-                                <td colSpan="5" className="text-right">Action</td>
-                        <td><Button onClick={(event) => this.onMarksSubmitHandler(event)} outline className="text-white" color="success">Submit</Button></td>
-                        </tr>
-                        </tbody>
+                           <Table className="myTable"  >
+                               <thead>
+                               <tr className="text-white">
+                                   <th>S.N</th>
+                                   <th>Roll No</th>
+                                   <th>Full Name</th>
+                                   <th>Assessment Marks</th>
+                                   <th>Practical Marks</th>
+                                   <th>Remarks</th>
+                               </tr>
+                               </thead>
+                               <tbody>
+                               {
+                                   recordDatas.data.map((data,index) => {
+                                       return <tr className="text-white" key={index}>
+                                           <td className="text-center">{index+1}</td>
+                                           <td>{data.username}</td>
+                                           <td>Full Name</td>
+                                           <td><Input type='number' id='i1' onChange={(event) => this.onMarksChangeHandler(event,'asmnt', index, recordDatas.fm)} value={data.test}/></td>
+                                           <td><Input type='number' id='i2' onChange={(event) => this.onMarksChangeHandler(event,'pract', index, recordDatas.fm)} value={data.practical}/></td>
+                                           <td>Excellent</td>
+                                       </tr>
+                                   })
+                               }
+                               <tr>
+                                   <td colSpan="5" className="text-right">Action</td>
+                                   <td><Button onClick={(event) => this.onMarksSubmitHandler(event)} outline className="text-white" color="success">Submit</Button></td>
+                               </tr>
+                               </tbody>
 
-                    </Table>
-               </div>
+                           </Table>
+                       </div>}
+               </Fragment>
         );
     }
 }
@@ -98,7 +102,8 @@ const mapStateToProps = state => {
         classStudentValues: state.teacher.classStudentValues,
         classIndex: state.teacher.activeClassStudentValuesIndex,
         activeClass: state.teacher.activeClass,
-        activeSem: state.teacher.activeSem
+        activeSem: state.teacher.activeSem,
+        loading: state.teacher.loading
     }
 };
 

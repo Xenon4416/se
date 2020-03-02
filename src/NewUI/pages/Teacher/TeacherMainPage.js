@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import CardTitle from "reactstrap/es/CardTitle";
 import Card from "reactstrap/es/Card";
 import CardBody from "reactstrap/es/CardBody";
 import CardText from "reactstrap/es/CardText";
 import "./TeacherMainPage.css";
 import * as actions from "../../store/actions/teacher";
+import Spinner from '../../components/Spinner/Spinner.js';
 import {Row, Col, Button} from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 
@@ -28,18 +29,21 @@ class TeacherMainPage extends React.Component{
             )
         };*/
         return(
-            <Row className="styles">
-                {this.props.classes.map((data, index) => {
-                    return <Col  xs={8} sm={8} md={4} lg={3} key={index}>
-                        <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
-                            <CardText>Batch: {data.batch}</CardText>
-                            <CardText>Subject Code: {data.subCode}</CardText>
-                            <CardText>Subject: {data.subName}</CardText>
-                            <CardText>Group: {data.group}</CardText>
-                        </Card>
-                    </Col>
-                })}
-            </Row>
+            <Fragment>
+                {this.props.loading ? <Spinner/> :
+                    <Row className="styles">
+                        {this.props.classes.map((data, index) => {
+                            return <Col  xs={8} sm={8} md={4} lg={3} key={index}>
+                                <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
+                                    <CardText>Batch: {data.batch}</CardText>
+                                    <CardText>Subject Code: {data.subCode}</CardText>
+                                    <CardText>Subject: {data.subName}</CardText>
+                                    <CardText>Group: {data.group}</CardText>
+                                </Card>
+                            </Col>
+                        })}
+                    </Row>}
+            </Fragment>
         );
     }
 
@@ -47,7 +51,8 @@ class TeacherMainPage extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        classes: state.teacher.classes
+        classes: state.teacher.classes,
+        loading: state.teacher.loading
     }
 };
 
