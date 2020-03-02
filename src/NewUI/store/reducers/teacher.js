@@ -6,6 +6,7 @@ const initialState = {
     activeComponent: 'mainPage',
     activeClass: null,
     activeSem: null,
+    activeGroup: null,
     activeClassStudentValuesIndex: null,
     classes: [], /*[{batch: 'dfsd', subCode:'adaf', subName:'asdas', group:"dfsd"}]*/
     classStudentValues: []
@@ -51,12 +52,12 @@ const updateClassStudentValues = (state, action) => {
     } else if(action.Type === 'pract'){
         tempClassStudent[action.index].practical = action.value;
     }
-    tempClass[state.activeClassStudentValuesIndex] = {classId: state.activeClass, sem: state.activeSem, data: tempClassStudent, fm: tempClass[state.activeClassStudentValuesIndex].fm};
+    tempClass[state.activeClassStudentValuesIndex] = {classId: state.activeClass, sem: state.activeSem, group: state.activeGroup, data: tempClassStudent, fm: tempClass[state.activeClassStudentValuesIndex].fm};
     return updateObject(state, {classStudentValues: tempClass})
 };
 
 const resetStates = (state, action) => {
-    return updateObject(state, {activeComponent: 'mainPage', activeClass: null, classes: [], classStudentValues: []})
+    return updateObject(state, {...initialState})
 };
 
 const setActiveClassStudentIndex = (state, action) => {

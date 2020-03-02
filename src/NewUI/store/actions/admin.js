@@ -8,9 +8,16 @@ export const setActiveComponent = (comp) => {
     }
 };
 
-export const setTeacherValues = (value) => {
+export const setTeacherClasses = (value) => {
     return {
-        type: actionTypes.SET_ADMIN_TEACHER_VALUES,
+        type: actionTypes.SET_ADMIN_TEACHER_CLASSES,
+        value: value
+    }
+};
+
+export const setTeacherClassesStudentList = (value) => {
+    return {
+        type: actionTypes.SET_ADMIN_TEACHER_CLASSES_STUDENT_LIST,
         value: value
     }
 };
@@ -22,6 +29,15 @@ export const setActiveTeacher = (teacher) => {
     }
 };
 
+export const setActiveClass = (Class, sem, group) => {
+    return {
+        type: actionTypes.SET_ADMIN_ACTIVE_CLASS,
+        Class: Class,
+        sem: sem,
+        group: group
+    }
+};
+
 export const setTeachers = (values) => {
     return {
         type: actionTypes.SET_ADMIN_TEACHERS,
@@ -29,8 +45,22 @@ export const setTeachers = (values) => {
     }
 };
 
+export const setActiveTeacherClassesIndex = (value) => {
+    return {
+        type: actionTypes.SET_ADMIN_ACTIVE_TEACHER_CLASSES_INDEX,
+        value: value
+    }
+};
+
+export const setActiveTeacherClassesStudentListIndex = (value) => {
+    return {
+        type: actionTypes.SET_ADMIN_ACTIVE_TEACHER_CLASSES_STUDENT_LIST_INDEX,
+        value: value
+    }
+};
+
 export const resetAdminState = () => {
     return {
-        type: actionTypes.RESET_DEFAULTS_TEACHER
+        type: actionTypes.RESET_DEFAULTS_ADMIN
     }
 };

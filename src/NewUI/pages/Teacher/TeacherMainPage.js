@@ -10,7 +10,7 @@ import connect from "react-redux/es/connect/connect";
 
 class TeacherMainPage extends React.Component{
     onCardSelectHandler(data){
-        this.props.selectCard(data.batch+data.subCode+data.group, data.sem);
+        this.props.selectCard(data.batch+data.subCode+data.group, data.sem, data.group);
         this.props.selectActiveComponent('studentList');
     }
 
@@ -53,7 +53,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        selectCard: (data, sem) => dispatch(actions.setActiveClass(data, sem)),
+        selectCard: (data, sem, group) => dispatch(actions.setActiveClass(data, sem, group)),
         selectActiveComponent: (comp) => dispatch(actions.setActiveComponent(comp))
     }
 };

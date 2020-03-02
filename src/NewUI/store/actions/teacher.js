@@ -8,15 +8,16 @@ export const setActiveComponent = (comp) => {
     }
 };
 
-export const setActiveClass = (Class, sem) => {
+export const setActiveClass = (Class, sem, group) => {
     return {
         type: actionTypes.SET_TEACHER_ACTIVE_CLASS,
         Class: Class,
-        sem: sem
+        sem: sem,
+        group: group
     }
 };
 
-export const setActiveClassIndex = (value) => {
+export const setActiveStudentIndex = (value) => {
     return {
         type: actionTypes.SET_TEACHER_ACTIVE_CLASS_STUDENT_VALUE_INDEX,
         value: value

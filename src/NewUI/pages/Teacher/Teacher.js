@@ -15,7 +15,8 @@ import * as actions from "../../store/actions/teacher";
 // import {AdminV} from "../../../Pages/AdminDashBoard/AdminV";
 class Teacher extends Component {
     componentDidMount(){
-        fetch(uris.FETCH_CLASSLIST+this.props.username, {
+        this.props.resetTeacherState();
+        fetch(uris.FETCH_CLASS_LIST+this.props.username, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +60,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSetClass: (values) => dispatch(actions.setClasses(values))
+        onSetClass: (values) => dispatch(actions.setClasses(values)),
+        resetTeacherState: () => dispatch(actions.resetTeacherState())
     }
 };
 

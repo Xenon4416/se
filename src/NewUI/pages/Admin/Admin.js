@@ -1,20 +1,23 @@
 import React,{Component, Fragment} from "react";
 import { connect } from 'react-redux';
 import AdminMainPage from "./AdminMainPage";
+import TeacherPage from './TeacherPage';
+import StudentList from './StudentList';
 import * as uris from '../../store/uris';
 import * as actions from "../../store/actions/admin";
-class Teacher extends Component {
+class Admin extends Component {
     componentDidMount(){
-        // fetch(uris.FETCH_CLASSLIST+this.props.username, {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer '+this.props.token
-        //     }
-        // })
-        //     .then(res => res.json())
-        //     .then(res => this.props.onSetClass(res.data))
-        //     .catch(err => console.log("Teacher err", err))
+        this.props.resetAdminState();
+        fetch(uris.FETCH_TEACHER_LIST, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+this.props.token
+            }
+        })
+            .then(res => res.json())
+            .then(res => this.props.onSetTeacher(res.data.users))
+            .catch(err => console.log("Teacher err", err))
     }
 
     render() {
@@ -23,12 +26,12 @@ class Teacher extends Component {
             case 'mainPage':
                 renderComp = <AdminMainPage/>;
                 break;
-            // case 'marksEntry':
-            //     renderComp = <MarksEntry/>;
-            //     break;
-            // case 'studentList':
-            //     renderComp = <StudentList/>;
-            //     break;
+            case 'teacherPage':
+                renderComp = <TeacherPage/>;
+                break;
+            case 'studentList':
+                renderComp = <StudentList/>;
+                break;
         }
         return (
             <Fragment>
@@ -43,14 +46,15 @@ const mapStateToProps = state => {
         token: state.auth.token,
         username: state.auth.username,
         activeComponent: state.admin.activeComponent,
-        teachers: state.admin.classes
+        teachers: state.admin.teachers,
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSetTeacher: (values) => dispatch(actions.setTeachers(values))
+        onSetTeacher: (values) => dispatch(actions.setTeachers(values)),
+        resetAdminState: () => dispatch(actions.resetAdminState())
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Teacher);
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);

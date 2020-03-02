@@ -4,7 +4,7 @@ import {Container,Row,Col} from 'reactstrap';
 //import {StudentList} from "./pages/Teacher/StudentList";
 // import SignIn from './pages/SignIn';
 import LogIn from '../src/NewUI/pages/Login';
-import Admin from '../src/NewUI/pages/Admin/AdminV.js';
+import Admin from '../src/NewUI/pages/Admin/Admin';
 import Navbars from './NewUI/components/NavBar/Navbars'
 //import {NavBars} from './NewUI/components/NavBar/Navbars.js'
 import {StudentList} from './NewUI/pages/Student/StudentList';
@@ -46,7 +46,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/" component={Admin}/>
                     </Switch>);
-                // Sidebar = <SidebarAdmin/>
+                Sidebar = <SidebarAdmin/>
             }
             else if(this.props.isAuthenticated && this.props.role==="teacher"){
                 Switches = (

@@ -3,27 +3,24 @@ import CardTitle from "reactstrap/es/CardTitle";
 import Card from "reactstrap/es/Card";
 import CardBody from "reactstrap/es/CardBody";
 import CardText from "reactstrap/es/CardText";
-import "./TeacherMainPage.css";
+import "./AdminMainPage.css";
 import * as actions from "../../store/actions/admin";
 import {Row, Col, Button} from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 
-class TeacherMainPage extends React.Component{
+class AdminMainPage extends React.Component{
     onCardSelectHandler(data){
-        this.props.selectCard(data.batch+data.subCode+data.group, data.sem);
-        this.props.selectActiveComponent('studentList');
+        this.props.selectCard(data.username);
+        this.props.selectActiveComponent('teacherPage');
     }
 
     render() {
         return(
             <Row xs="2" className="styles">
-                {this.props.classes.map((data, index) => {
+                {this.props.teachers.map((data, index) => {
                     return <Col sm={3}  md={4} key={index}>
                         <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
-                            <CardText>Batch: {data.batch}</CardText>
-                            <CardText>Subject Code: {data.subCode}</CardText>
-                            <CardText>Subject: {data.subName}</CardText>
-                            <CardText>Group: {data.group}</CardText>
+                            <CardText>Teacher Name: {data.name}</CardText>
                         </Card>
                     </Col>
                 })}
@@ -46,4 +43,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeacherMainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminMainPage);
