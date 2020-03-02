@@ -14,8 +14,8 @@ class SidebarAdmin extends React.Component{
     {
         let classOption, teacherOption = null;
         if (this.props.activeTeacher) {
-            teacherOption = (
-                <NavbarBrand className="myNavBrand text-success" onClick={() => this.onComponentShiftHandler('teacher')}>
+            teacherOption = ( // TODO: set appropriate sidebar icons
+                <NavbarBrand className="myNavBrand text-success" onClick={() => this.onComponentShiftHandler('teacherPage')}>
                     <UncontrolledTooltip placement="right" target="teacher">
                         Teacher
                     </UncontrolledTooltip>
@@ -25,7 +25,7 @@ class SidebarAdmin extends React.Component{
         }
         if (this.props.activeClass) {
             classOption = (
-                <NavbarBrand className="myNavBrand text-success" onClick={() => this.onComponentShiftHandler('class')}>
+                <NavbarBrand className="myNavBrand text-success" onClick={() => this.onComponentShiftHandler('studentList')}>
                     <UncontrolledTooltip placement="right" target="class">
                         Class
                     </UncontrolledTooltip>

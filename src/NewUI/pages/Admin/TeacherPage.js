@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import CardTitle from "reactstrap/es/CardTitle";
 import Card from "reactstrap/es/Card";
 import CardBody from "reactstrap/es/CardBody";
 import CardText from "reactstrap/es/CardText";
 import "./TeacherPage.css";
 import * as actions from "../../store/actions/admin";
+import Spinner from '../../components/Spinner/Spinner.js';
 import {Row, Col, Button} from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import * as uris from "../../store/uris";
@@ -31,6 +32,7 @@ class TeacherPage extends React.Component{
                 }})
                 .then(res => res.json())
                 .then(res => {
+                    console.log('response', res);
                     this.props.setTeacherClasses({username:this.props.activeTeacher, data: res.data});
                     this.props.setActiveTeacherClassesIndex(this.props.teacherClasses.length-1);
                 })
@@ -58,19 +60,22 @@ class TeacherPage extends React.Component{
         };*/
         let datas = this.props.teacherClasses[this.props.activeTeacherClassesIndex];
         return(
-            <Row className="styles">
-                {datas ?
-                    datas.data.map((data, index) => {
-                    return <Col  xs={8} sm={8} md={4} lg={3} key={index}>
-                        <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
-                            <CardText>Batch: {data.batch}</CardText>
-                            <CardText>Subject Code: {data.subCode}</CardText>
-                            <CardText>Subject: {data.subName}</CardText>
-                            <CardText>Group: {data.group}</CardText>
-                        </Card>
-                    </Col>
-                }) : null}
-            </Row>
+            <Fragment>
+                {this.props.loading ? <Spinner/> :
+                    <Row className="styles">
+                        {datas ?
+                            datas.data.map((data, index) => {
+                                return <Col  xs={8} sm={8} md={4} lg={3} key={index}>
+                                    <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
+                                        <CardText>Batch: {data.batch}</CardText>
+                                        <CardText>Subject Code: {data.subCode}</CardText>
+                                        <CardText>Subject: {data.subName}</CardText>
+                                        <CardText>Group: {data.group}</CardText>
+                                    </Card>
+                                </Col>
+                            }) : null}
+                    </Row>}
+            </Fragment>
         );
     }
 
@@ -81,7 +86,8 @@ const mapStateToProps = state => {
         token: state.auth.token,
         teacherClasses: state.admin.teacherClasses,
         activeTeacher: state.admin.activeTeacher,
-        activeTeacherClassesIndex: state.admin.activeTeacherClassesIndex
+        activeTeacherClassesIndex: state.admin.activeTeacherClassesIndex,
+        loading: state.admin.loading
     }
 };
 

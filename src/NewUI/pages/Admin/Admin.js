@@ -46,7 +46,7 @@ const mapStateToProps = state => {
         token: state.auth.token,
         username: state.auth.username,
         activeComponent: state.admin.activeComponent,
-        teachers: state.admin.teachers,
+        teachers: state.admin.teachers
     }
 };
 

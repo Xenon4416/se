@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
-    loading: false,
+    loading: true,
     activeComponent: 'mainPage',
     activeTeacher: null,
     activeClass: null,
@@ -20,11 +20,11 @@ const setActiveComponent = (state, action) => {
 };
 
 const setActiveClass = (state, action) => {
-    return updateObject(state, {activeClass: action.Class, activeSem: action.sem, activeGroup: action.group});
+    return updateObject(state, {activeClass: action.Class, activeSem: action.sem, activeGroup: action.group, loading: true});
 };
 
 const setTeachers = (state, action) => {
-    return updateObject(state, {teachers: action.value})
+    return updateObject(state, {teachers: action.value, loading: false})
 };
 
 const setTeacherClassesStudentList = (state, action) => {
@@ -34,27 +34,29 @@ const setTeacherClassesStudentList = (state, action) => {
     tempClasses[state.activeTeacherClassesIndex] = tempClassStudents;
     return {
         ...state,
-        teacherClassesStudentList: tempClasses
+        teacherClassesStudentList: tempClasses,
+        loading: false
     }
 };
 
 const setActiveTeacher = (state, action) => {
-    return updateObject(state, {activeTeacher: action.teacher});
+    return updateObject(state, {activeTeacher: action.teacher, loading: true});
 };
 
 const setActiveTeacherClassesIndex = (state, action) => {
-    return updateObject(state, {activeTeacherClassesIndex: action.value})
+    return updateObject(state, {activeTeacherClassesIndex: action.value, loading: false})
 };
 
 const setActiveTeacherClassesStudentListIndex = (state, action) => {
-    return updateObject(state, {activeTeacherClassesStudentListIndex: action.value})
+    return updateObject(state, {activeTeacherClassesStudentListIndex: action.value, loading: false})
 };
 
 const setTeacherClasses = (state, action) => {
     return {
         ...state,
         teacherClasses: [...state.teacherClasses, action.value],
-        teacherClassesStudentList: [...state.teacherClassesStudentList, []]
+        teacherClassesStudentList: [...state.teacherClassesStudentList, []],
+        loading: false
     }
 };
 
