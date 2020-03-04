@@ -1,4 +1,4 @@
-const baseURI = 'http://localhost:3000';
+const baseURI = 'http://5b3bb35c.ngrok.io';
 export const LOGIN = baseURI+'/api/users/login';
 export const ASSIGN_TEACHER = baseURI+'/api/users/assignTeacher';
 export const ADD_TEACHER = baseURI+"/api/classes/addTeacher";
