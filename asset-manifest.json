@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.3cbc6c6c.chunk.css",
-    "main.js": "/static/js/main.6da26e75.chunk.js",
-    "main.js.map": "/static/js/main.6da26e75.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.bedcbca6.js",
-    "runtime-main.js.map": "/static/js/runtime-main.bedcbca6.js.map",
-    "static/css/2.17e5ed98.chunk.css": "/static/css/2.17e5ed98.chunk.css",
-    "static/js/2.15b443ff.chunk.js": "/static/js/2.15b443ff.chunk.js",
-    "static/js/2.15b443ff.chunk.js.map": "/static/js/2.15b443ff.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.b6f750b10fa95fd8c4d0f4d150d47928.js": "/precache-manifest.b6f750b10fa95fd8c4d0f4d150d47928.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.17e5ed98.chunk.css.map": "/static/css/2.17e5ed98.chunk.css.map",
-    "static/css/main.3cbc6c6c.chunk.css.map": "/static/css/main.3cbc6c6c.chunk.css.map",
-    "static/js/2.15b443ff.chunk.js.LICENSE": "/static/js/2.15b443ff.chunk.js.LICENSE",
-    "static/media/tu logo official.png": "/static/media/tu logo official.af4df160.png"
+    "main.css": "/se/static/css/main.3cbc6c6c.chunk.css",
+    "main.js": "/se/static/js/main.488d0ccb.chunk.js",
+    "main.js.map": "/se/static/js/main.488d0ccb.chunk.js.map",
+    "runtime-main.js": "/se/static/js/runtime-main.ede9d338.js",
+    "runtime-main.js.map": "/se/static/js/runtime-main.ede9d338.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/se/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.2ce4e65e.chunk.js": "/se/static/js/2.2ce4e65e.chunk.js",
+    "static/js/2.2ce4e65e.chunk.js.map": "/se/static/js/2.2ce4e65e.chunk.js.map",
+    "index.html": "/se/index.html",
+    "precache-manifest.1c6457e81e33480267c408e1801e7e80.js": "/se/precache-manifest.1c6457e81e33480267c408e1801e7e80.js",
+    "service-worker.js": "/se/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/se/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.3cbc6c6c.chunk.css.map": "/se/static/css/main.3cbc6c6c.chunk.css.map",
+    "static/js/2.2ce4e65e.chunk.js.LICENSE": "/se/static/js/2.2ce4e65e.chunk.js.LICENSE",
+    "static/media/tu logo official.png": "/se/static/media/tu logo official.af4df160.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.bedcbca6.js",
+    "static/js/runtime-main.ede9d338.js",
     "static/css/2.17e5ed98.chunk.css",
-    "static/js/2.15b443ff.chunk.js",
+    "static/js/2.2ce4e65e.chunk.js",
     "static/css/main.3cbc6c6c.chunk.css",
-    "static/js/main.6da26e75.chunk.js"
+    "static/js/main.488d0ccb.chunk.js"
   ]
 }
