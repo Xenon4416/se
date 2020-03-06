@@ -17,6 +17,7 @@
 .studentListTable{
     background-color: #272a3d;
     margin-bottom:20px;
+    font-size:0.7em;
 
 }
 .studentClassTitle{
@@ -30,6 +31,8 @@
 }
 .myCardStyle {
     margin-top: 4vh;
+    margin-left:10px;
+    margin-right:0px;
     background-color: #272a3d;
     color:#272a3d;
     max-height:80.5vh;

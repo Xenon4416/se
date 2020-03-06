@@ -74,9 +74,9 @@ class StudentList extends React.Component {
                                 <tr>
                                     <th>S.N</th>
                                     <th>Roll No</th>
-                                    <th>Full Name</th>
-                                    <th>Assessment Marks</th>
-                                    <th>Practical Marks</th>
+                                    <th>Name</th>
+                                    <th>Assessment</th>
+                                    <th>Practical</th>
                                 </tr>
                                 </thead>
                                 <tbody className="scroll">
