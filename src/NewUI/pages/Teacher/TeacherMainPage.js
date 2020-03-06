@@ -33,7 +33,7 @@ class TeacherMainPage extends React.Component{
                 {this.props.loading ? <Spinner/> :
                     <Row className="styles">
                         {this.props.classes.map((data, index) => {
-                            return <Col  xs={8} sm={8} md={4} lg={3} key={index}>
+                            return <Col  xs={10} sm={8} md={4} lg={3} key={index}>
                                 <Card body inverse color="dark myCardS" onClick={() => this.onCardSelectHandler(data)} >
                                     <CardText>Batch: {data.batch}</CardText>
                                     <CardText>Subject Code: {data.subCode}</CardText>
