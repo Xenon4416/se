@@ -1,4 +1,4 @@
-const baseURI = 'https://nameless-waters-95294.herokuapp.com';
+const baseURI = 'https://immsnode.herokuapp.com';
 export const LOGIN = baseURI+'/api/users/login';
 export const ASSIGN_TEACHER = baseURI+'/api/users/assignTeacher';
 export const ADD_TEACHER = baseURI+"/api/classes/addTeacher";
